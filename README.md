@@ -1,5 +1,5 @@
 ![alt text](https://static.wixstatic.com/media/082347_acfaacf9e6c04772957cde1365915b4c~mv2.png)
-## Sobre
+## :page_with_curl: Sobre o projeto
 
 > É proposto o desenvolvimento de uma plataforma para escritores, que permitirá que os escritores coloquem suas à venda suas obras, que serão visualizadas por usuários que pagarão pela obra ou irão adquirir um plano premium mensal. 
 
