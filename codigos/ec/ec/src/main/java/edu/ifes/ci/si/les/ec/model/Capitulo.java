@@ -1,7 +1,18 @@
 package edu.ifes.ci.si.les.ec.model;
+import java.io.Serializable;
+import lombok.*;
 
-public class Capitulo {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(of = {"id"})
+@Entity
+public class Capitulo implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
+	@id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	private String titulo;
@@ -10,6 +21,8 @@ public class Capitulo {
 
 	private String conteudo;
 
+	@ManyToOne
+	@JoinColumn(name="livro_id")
 	private Livro livro;
 
 }
