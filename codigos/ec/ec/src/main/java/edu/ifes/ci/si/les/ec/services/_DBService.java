@@ -8,39 +8,36 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.ifes.ci.si.les.ec.model.Assinatura;
+import edu.ifes.ci.si.les.ec.model.Avaliacao;
 import edu.ifes.ci.si.les.ec.model.Bairro;
+import edu.ifes.ci.si.les.ec.model.Capitulo;
 import edu.ifes.ci.si.les.ec.model.Cidade;
 import edu.ifes.ci.si.les.ec.model.Escritor;
+import edu.ifes.ci.si.les.ec.model.Favorito;
+import edu.ifes.ci.si.les.ec.model.ItemDeVenda;
+import edu.ifes.ci.si.les.ec.model.Livro;
 import edu.ifes.ci.si.les.ec.model.Post;
 import edu.ifes.ci.si.les.ec.model.TipoDeAssinatura;
 import edu.ifes.ci.si.les.ec.model.TipoDeLivro;
 import edu.ifes.ci.si.les.ec.model.UF;
 import edu.ifes.ci.si.les.ec.model.Usuario;
 import edu.ifes.ci.si.les.ec.model.Venda;
-
-import edu.ifes.ci.si.les.ec.model.Assinatura;
-import edu.ifes.ci.si.les.ec.model.Avaliacao;
-import edu.ifes.ci.si.les.ec.model.Capitulo;
-import edu.ifes.ci.si.les.ec.model.Favorito;
-import edu.ifes.ci.si.les.ec.model.ItemDeVenda;
-import edu.ifes.ci.si.les.ec.model.Livro;
-
+import edu.ifes.ci.si.les.ec.repositories.AssinaturaRepository;
+import edu.ifes.ci.si.les.ec.repositories.AvaliacaoRepository;
 import edu.ifes.ci.si.les.ec.repositories.BairroRepository;
+import edu.ifes.ci.si.les.ec.repositories.CapituloRepository;
 import edu.ifes.ci.si.les.ec.repositories.CidadeRepository;
+import edu.ifes.ci.si.les.ec.repositories.EscritorRepository;
+import edu.ifes.ci.si.les.ec.repositories.FavoritoRepository;
+import edu.ifes.ci.si.les.ec.repositories.ItemDeVendaRepository;
+import edu.ifes.ci.si.les.ec.repositories.LivroRepository;
 import edu.ifes.ci.si.les.ec.repositories.PostRepository;
 import edu.ifes.ci.si.les.ec.repositories.TipoDeAssinaturaRepository;
 import edu.ifes.ci.si.les.ec.repositories.TipoDeLivroRepository;
 import edu.ifes.ci.si.les.ec.repositories.UFRepository;
 import edu.ifes.ci.si.les.ec.repositories.UsuarioRepository;
 import edu.ifes.ci.si.les.ec.repositories.VendaRepository;
-
-import edu.ifes.ci.si.les.ec.repositories.AssinaturaRepository;
-import edu.ifes.ci.si.les.ec.repositories.AvaliacaoRepository;
-import edu.ifes.ci.si.les.ec.repositories.CapituloRepository;
-import edu.ifes.ci.si.les.ec.repositories.EscritorRepository;
-import edu.ifes.ci.si.les.ec.repositories.FavoritoRepository;
-import edu.ifes.ci.si.les.ec.repositories.ItemDeVendaRepository;
-import edu.ifes.ci.si.les.ec.repositories.LivroRepository;
 
 @Service
 public class _DBService {  
