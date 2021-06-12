@@ -10,6 +10,8 @@ import lombok.*;
 @EqualsAndHashCode(of = {"id"})
 @Entity
 public class Cidade implements Serializable {
+	public Cidade() {
+	}
 
 	public Cidade(Object object, String string, UF uf2) {
     }

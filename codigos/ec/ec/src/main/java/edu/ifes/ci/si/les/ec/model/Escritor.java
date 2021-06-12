@@ -11,6 +11,9 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 @Entity
 public class Escritor extends Usuario {
+	public Escritor() {
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Column(length = 50)
@@ -19,21 +22,21 @@ public class Escritor extends Usuario {
 	private String nome_artistico;
 
 	@Column(length = 100)
-  @NotBlank(message = "Email deve ser preenchido")
-  @Size(min = 2, max = 100, message = "Email deve ter entre 2 e 100 caracteres")
+	@NotBlank(message = "Email deve ser preenchido")
+	@Size(min = 2, max = 100, message = "Email deve ter entre 2 e 100 caracteres")
 	private String email_escritor;
 
 	//https://en.wikipedia.org/wiki/E.164
 	// 15 Caracteres é a  de tamanho maximo para numeros de telefone
 	@Column
-  @NotBlank(message = "telefone deve ser preenchido")
+  	@NotBlank(message = "telefone deve ser preenchido")
 	@Size(min = 2, max = 16, message = "Telefone deve ter entre 2 e 16 caracteres")
 	private String telefone;
 
 	@Builder
 	public Escritor(Integer id, String nome, String cpf, String rua, Integer numero, Date data_de_nascimento,  String email, String senha, Bairro bairro, String nome_artistico, String email_escritor, String telefone) {
-			super(id, nome, cpf, rua, numero, data_de_nascimento, email, senha, bairro);
-			this.email_escritor = email_escritor;
-			this.telefone = telefone;
+		super(id, nome, cpf, rua, numero, data_de_nascimento, email, senha, bairro);
+		this.email_escritor = email_escritor;
+		this.telefone = telefone;
 	}
 }

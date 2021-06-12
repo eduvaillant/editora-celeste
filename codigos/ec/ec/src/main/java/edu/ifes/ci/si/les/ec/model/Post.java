@@ -12,7 +12,9 @@ import lombok.*;
 @EqualsAndHashCode(of = {"id"})
 @Entity
 public class Post implements Serializable {
-
+	public Post() {
+	}
+	
 	public Post(String string, Escritor escritor1) {
 	}
 

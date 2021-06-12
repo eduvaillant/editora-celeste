@@ -4,11 +4,13 @@ import java.io.Serializable;
 import javax.persistence.*;
 import lombok.*;
 
-//Classe criada para representar a chave primária composta do objeto ItemDeEmprestimo
+
 @Embeddable
 @Data
 @EqualsAndHashCode(of = {"venda", "livro"})
 public class ItemDeVendaPK implements Serializable {
+    public ItemDeVendaPK() {
+    }
 
     private static final long serialVersionUID = 1L;
 

@@ -21,7 +21,10 @@ import lombok.*;
 @EqualsAndHashCode(of = {"id"})
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Usuario implements Serializable {
-	public Usuario(String string, String string2, String string3, int i, Date date, String string4, String string5,
+  public Usuario() {
+  }
+
+	public Usuario(Integer id, String string2, String string3, String string6, int i, Date date, String string4, String string5,
       Bairro bairro8) {
   }
 
@@ -36,9 +39,9 @@ public class Usuario implements Serializable {
   @Size(min = 2, max = 50, message = "Nome da Usuario deve ter entre 2 e 50 letras")
 	private String nome;
 
-  @Column(length = 50)
+  @Column(length = 14)
   @NotBlank(message = "CPF da Pessoa deve ser preenchido")
-  @Size(min = 2, max = 50, message = "CPF da Pessoa deve ter entre 2 e 50 letras")
+  @Size(min = 14, max = 14, message = "CPF da Pessoa deve ter 14 digítos")
   @Pattern(regexp="\\d{3}.\\d{3}.\\d{3}-\\d{2}", message = "CPF da Pessoa deve seguir o padrão NNN.NNN.NNN-NN")
   private String cpf;
 
@@ -54,13 +57,13 @@ public class Usuario implements Serializable {
   private Date data_de_nascimento;
 
   @Column(length = 150)
-  @NotBlank(message = "O Email ser preenchida")
-  @Size(min = 6, max = 150, message = "Senha do Funcionário deve ter entre 6 e 150 caracteres")
+  @NotBlank(message = "O Email deve ser preenchido")
+  @Size(min = 6, max = 150, message = "Email do usuário deve ter entre 6 e 150 caracteres")
 	private String email;
 
   @Column(length = 20)
-  @NotBlank(message = "Senha do Gerente deve ser preenchida")
-  @Size(min = 6, max = 10, message = "Senha do Funcionário deve ter entre 6 e 20 caracteres")
+  @NotBlank(message = "Senha do usuário deve ser preenchida")
+  @Size(min = 6, max = 10, message = "Senha do usuário deve ter entre 6 e 20 caracteres")
   private String senha;
 
   @NotNull(message = "O Bairro do Usuário deve ser preenchido")

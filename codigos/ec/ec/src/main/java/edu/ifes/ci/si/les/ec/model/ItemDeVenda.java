@@ -13,7 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @EqualsAndHashCode(of = {"id"})
 @Entity
 public class ItemDeVenda implements Serializable {
-	private static final long serialVersionUID = 1L;
+	public ItemDeVenda() {
+    }
+
+	public ItemDeVenda(int i, String string, double d) {
+    }
+
+    private static final long serialVersionUID = 1L;
 
 	@JsonIgnore
 	@EmbeddedId

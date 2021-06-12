@@ -11,8 +11,13 @@ import lombok.*;
 @EqualsAndHashCode(of = {"id"})
 @Entity
 public class Favorito implements Serializable{
+	public Favorito() {
+	}
 
-	private static final long serialVersionUID = 1L;
+	public Favorito(Object object, Usuario usuario1, Livro livro1, Object object2) {
+    }
+
+    private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

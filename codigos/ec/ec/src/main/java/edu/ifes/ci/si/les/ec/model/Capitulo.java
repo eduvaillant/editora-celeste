@@ -10,8 +10,13 @@ import lombok.*;
 @EqualsAndHashCode(of = {"id"})
 @Entity
 public class Capitulo implements Serializable {
+	public Capitulo() {
+	}
 
-	private static final long serialVersionUID = 1L;
+	public Capitulo(Object object, String string, Object object2, String string2, Livro livro1) {
+    }
+
+    private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

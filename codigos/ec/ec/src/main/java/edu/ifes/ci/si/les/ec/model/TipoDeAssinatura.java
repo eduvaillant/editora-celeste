@@ -1,6 +1,8 @@
 package edu.ifes.ci.si.les.ec.model;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import lombok.*;
@@ -12,8 +14,10 @@ import lombok.*;
 @EqualsAndHashCode(of = {"id"})
 @Entity
 public class TipoDeAssinatura implements Serializable {
+	public TipoDeAssinatura() {
+	}
 
-	public TipoDeAssinatura(String string, double d, Class<byte[]> class1) {
+	public TipoDeAssinatura(String string, double d, List<Assinatura> list) {
 	}
 
 	private static final long serialVersionUID = 1L;

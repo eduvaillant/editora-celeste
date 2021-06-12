@@ -12,6 +12,8 @@ import lombok.*;
 @EqualsAndHashCode(of = {"id"})
 @Entity
 public class TipoDeLivro implements Serializable {
+	public TipoDeLivro() {
+	}
 
 	public TipoDeLivro(String string, String string2) {
 	}

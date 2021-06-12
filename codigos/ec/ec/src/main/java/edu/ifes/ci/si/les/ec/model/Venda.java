@@ -18,8 +18,10 @@ import lombok.*;
 @EqualsAndHashCode(of = {"id"})
 @Entity
 public class Venda implements Serializable {
+  public Venda() {
+  }
 
-  public Venda(double d, String string, Usuario usuario1, Class<byte[]> class1) {
+  public Venda(double d, String string, Usuario usuario1, List<ItemDeVenda> list) {
   }
 
   private static final long serialVersionUID = 1L;

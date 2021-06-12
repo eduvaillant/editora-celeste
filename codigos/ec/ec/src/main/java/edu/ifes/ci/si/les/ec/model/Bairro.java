@@ -11,6 +11,8 @@ import lombok.*;
 @EqualsAndHashCode(of = {"id"})
 @Entity
 public class Bairro implements Serializable {
+	public Bairro() {
+	}
 	
 	public Bairro(Object object, String string, Cidade cidade4) {
     }
