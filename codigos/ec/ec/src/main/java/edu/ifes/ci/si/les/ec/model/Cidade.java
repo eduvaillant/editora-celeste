@@ -16,9 +16,10 @@ public class Cidade {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@Column(length = 50)
+	@NotBlank(message = "Nome da Cidade deve ser preenchido")
+	@Size(min = 3, max = 50, message = "Nome da Cidade deve ter entre 3 e 50 letras")   
 	private String nome;
-
-	private Bairro bairro; 
 
 	@ManyToOne
 	@JoinColumn(name="uf_id")
