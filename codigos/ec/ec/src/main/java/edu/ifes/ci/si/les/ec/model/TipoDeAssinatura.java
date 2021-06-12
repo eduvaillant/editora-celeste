@@ -13,6 +13,9 @@ import lombok.*;
 @Entity
 public class TipoDeAssinatura implements Serializable {
 
+	public TipoDeAssinatura(String string, double d, Class<byte[]> class1) {
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Id 
@@ -25,8 +28,8 @@ public class TipoDeAssinatura implements Serializable {
 	private String nome;
 
 	@Min(value = 1, message = "O valor do plano não pode ser grátis")
-  @NotNull(message = "Preencha o valor do plano")
-  @Digits(integer=6, fraction=2, message = "Valor do Empréstimo deve ser preenchido com dígitos")
+	@NotNull(message = "Preencha o valor do plano")
+	@Digits(integer=6, fraction=2, message = "Valor do Empréstimo deve ser preenchido com dígitos")
 	private double valor;
 
 	@ManyToOne

@@ -13,6 +13,9 @@ import lombok.*;
 @Entity
 public class Post implements Serializable {
 
+	public Post(String string, Escritor escritor1) {
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Id 

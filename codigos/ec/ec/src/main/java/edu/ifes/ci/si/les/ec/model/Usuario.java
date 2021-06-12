@@ -21,7 +21,11 @@ import lombok.*;
 @EqualsAndHashCode(of = {"id"})
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Usuario implements Serializable {
-	private static final long serialVersionUID = 1L;
+	public Usuario(String string, String string2, String string3, int i, Date date, String string4, String string5,
+      Bairro bairro8) {
+  }
+
+  private static final long serialVersionUID = 1L;
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

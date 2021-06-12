@@ -11,7 +11,10 @@ import lombok.*;
 @Entity
 public class Cidade implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	public Cidade(Object object, String string, UF uf2) {
+    }
+
+    private static final long serialVersionUID = 1L;
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

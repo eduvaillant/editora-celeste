@@ -19,6 +19,9 @@ import lombok.*;
 @Entity
 public class Venda implements Serializable {
 
+  public Venda(double d, String string, Usuario usuario1, Class<byte[]> class1) {
+  }
+
   private static final long serialVersionUID = 1L;
 
   @Id

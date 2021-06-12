@@ -13,6 +13,9 @@ import lombok.*;
 @Entity
 public class TipoDeLivro implements Serializable {
 
+	public TipoDeLivro(String string, String string2) {
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Id 

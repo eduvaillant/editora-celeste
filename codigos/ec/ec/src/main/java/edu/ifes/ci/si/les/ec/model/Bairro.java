@@ -12,7 +12,10 @@ import lombok.*;
 @Entity
 public class Bairro implements Serializable {
 	
-	private static final long serialVersionUID = 1L;
+	public Bairro(Object object, String string, Cidade cidade4) {
+    }
+
+    private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
