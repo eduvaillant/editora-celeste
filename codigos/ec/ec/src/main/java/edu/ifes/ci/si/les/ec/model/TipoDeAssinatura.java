@@ -23,9 +23,9 @@ public class TipoDeAssinatura implements Serializable {
 	@Size(min = 2, max = 100, message = "O nome do tipo da assinatura precisa ter no mínimo 2 letras")
 	private String nome;
 
-	@Column(length = 10)
-	@NotBlank(message = "Preencha o valor do plano")
-	@Size(min = 1, max = 150, message = "O valor do plano não pode ser grátis")
+	@Min(value = 1, message = "O valor do plano não pode ser grátis")
+    @NotNull(message = "Preencha o valor do plano")
+    @Digits(integer=6, fraction=2, message = "Valor do Empréstimo deve ser preenchido com dígitos")
 	private double valor;
 
 	@ManyToOne
