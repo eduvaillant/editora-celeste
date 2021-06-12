@@ -23,6 +23,14 @@ import edu.ifes.ci.si.les.ec.repositories.BairroRepository;
 import edu.ifes.ci.si.les.ec.repositories.CidadeRepository;
 import edu.ifes.ci.si.les.ec.repositories.UFRepository;
 
+import edu.ifes.ci.si.les.ec.repositories.AssinaturaRepository;
+import edu.ifes.ci.si.les.ec.repositories.AvaliacaoRepository;
+import edu.ifes.ci.si.les.ec.repositories.CapituloRepository;
+import edu.ifes.ci.si.les.ec.repositories.EscritorRepository;
+import edu.ifes.ci.si.les.ec.repositories.FavoritoRepository;
+import edu.ifes.ci.si.les.ec.repositories.ItemDeVendaRepository;
+import edu.ifes.ci.si.les.ec.repositories.LivroRepository;
+
 @Service
 public class _DBService {  
   @Autowired
@@ -33,6 +41,27 @@ public class _DBService {
 
   @Autowired
   private CidadeRepository cidadeRepository;
+
+  @Autowired
+  private AssinaturaRepository assinaturaRepository;
+  
+  @Autowired
+  private AvaliacaoRepository avaliacaoRepository;
+
+  @Autowired
+  private CapituloRepository capituloRepository;
+
+  @Autowired
+  private EscritorRepository escritorRepository;
+
+  @Autowired
+  private FavoritoRepository favoritoRepository;
+
+  @Autowired
+  private ItemDeVendaRepository itemDeVendaRepository;
+
+  @Autowired
+  private LivroRepository livroRepository;
 
   public void instantiateTestDatabase() throws ParseException, IOException {    
 
@@ -62,7 +91,7 @@ public class _DBService {
     Avaliacao avaliacao2 = new Avaliacao(null, 9, "Comentario2", livro2, usuario2);
 
     Escritor escritor1 = new Escritor(null, "Rodolfo da Costa", "135.521.130-10", "Rua dos anjos", 14, new Date(2000,11,4), "arthur@gmail.com", "senha", bairro1, "Arthur Christie", "arthur@gmail.com", "+5528999112234" );
-    Escritor escritor2 = new Escritor(null, "Douglas Jr Abreu", "277.645.460-03", "Rua Arthur da Costa", 2, new Date(2002,5,4), "douglas@gmail.com", "senha", bairro2, "Douglinhas ", "douglas@gmail.com", "+5528999335574" );
+    Escritor escritor2 = new Escritor(null, "Douglas Jr Abreu", "277.645.460-03", "Rua Arthur da Costa", 2, new Date(2002,5,4), "douglas@gmail.com", "senha2", bairro2, "Douglinhas ", "douglas@gmail.com", "+5528999335574" );
 
     Livro livro1 = new Livro(null, "As aventuras de douglas", "A sociedade do colar", "Um livro muito bom a respeito do douglas e seus colares",2,10,escritor1, tipoDeLivro1);
     Livro livro2 = new Livro(null, "O Homem que cumprimentava", "O inicio", "Um livro sobre um homem que gostava de cumprimentar",2,12,escritor2, tipoDeLivro2);
@@ -81,5 +110,13 @@ public class _DBService {
     ufRepository.saveAll(Arrays.asList(uf1, uf2));
     cidadeRepository.saveAll(Arrays.asList(cidade1, cidade2, cidade3, cidade4));
     bairroRepository.saveAll(Arrays.asList(bairro1, bairro2, bairro3, bairro4, bairro5, bairro6, bairro7, bairro8));
+
+    assinaturaRepository.saveAll(Arrays.asList(assinatura1, assinatura2));
+    avaliacaoRepository.saveAll(Arrays.asList(avaliacao1, avaliacao2));
+    capituloRepository.saveAll(Arrays.asList(capitulo1, capitulo2, capitulo3, capitulo4));
+    escritorRepository.saveAll(Arrays.asList(escritor1, escritor2));
+    favoritoRepository.saveAll(Arrays.asList(favorito1, favorito2));
+    itemDeVendaRepository.saveAll(Arrays.asList(itemDeVenda1, itemDeVenda2));
+    livroRepository.saveAll(Arrays.asList(avaliacao1, avaliacao2));
   }
 }
