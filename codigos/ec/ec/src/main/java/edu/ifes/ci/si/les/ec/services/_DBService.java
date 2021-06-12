@@ -109,32 +109,34 @@ public class _DBService {
     Bairro bairro7 = new Bairro(null, "Vale do Sol", cidade4);
     Bairro bairro8 = new Bairro(null, "Nova Lavras", cidade4);
 
-    Escritor escritor1 = new Escritor(null, "Rodolfo da Costa", "135.521.130-10", "Rua dos anjos", 14, new Date(2000,11,4), "arthur@gmail.com", "senha", bairro1, "Arthur Christie", "arthur@gmail.com", "+5528999112234" );
-    Escritor escritor2 = new Escritor(null, "Douglas Jr Abreu", "277.645.460-03", "Rua Arthur da Costa", 2, new Date(2002,5,4), "douglas@gmail.com", "senha2", bairro2, "Douglinhas ", "douglas@gmail.com", "+5528999335574" );
-
     Usuario usuario1 = new Usuario(null, "Matheus", "111.111.111-11", "Rua do João", 10, new Date(), "abc@email.com", "123456", bairro8);
     Usuario usuario2 = new Usuario(null, "Nicollas", "321.123.321-12", "Rua da Silva", 30, new Date(), "abc@email.com", "123456", bairro8);
 
-    Post post1 = new Post("Essa semana lançaremos mais um capítulo do livro 'A história'", escritor1);
-    Post post2 = new Post("Hoje teremos Live no site roxo, participe conosco do nosso novo lançamento.", escritor1);
+    Escritor escritor1 = new Escritor(null, "Rodolfo da Costa", "135.521.130-10", "Rua dos anjos", 14, new Date(2000,11,4), "arthur@gmail.com", "senha", bairro1, "Arthur Christie", "arthur@gmail.com", "+5528999112234" );
+    Escritor escritor2 = new Escritor(null, "Douglas Jr Abreu", "277.645.460-03", "Rua Arthur da Costa", 2, new Date(2002,5,4), "douglas@gmail.com", "senha2", bairro2, "Douglinhas ", "douglas@gmail.com", "+5528999335574" );
 
-    Assinatura assinatura1 = new Assinatura(null, new Date(), new Date(), 100, usuario1);
-    Assinatura assinatura2 = new Assinatura(null, new Date(), new Date(), 200, usuario2);
+    Post post1 = new Post(null, "Essa semana lançaremos mais um capítulo do livro 'A história'", escritor1);
+    Post post2 = new Post(null, "Hoje teremos Live no site roxo, participe conosco do nosso novo lançamento.", escritor1);
 
-    TipoDeAssinatura tipoDeAssinatura1 = new TipoDeAssinatura("Premium", 20.0, Arrays.asList(assinatura1, assinatura2));
-    TipoDeAssinatura tipoDeAssinatura2 = new TipoDeAssinatura("Supremo", 20.0, Arrays.asList(assinatura1, assinatura2));
+    TipoDeAssinatura tipoDeAssinatura1 = new TipoDeAssinatura(null, "Premium", 20.0);
+    TipoDeAssinatura tipoDeAssinatura2 = new TipoDeAssinatura(null, "Supremo", 20.0);
 
-    TipoDeLivro tipoDeLivro1 = new TipoDeLivro("Romance", "Comédia");
-    TipoDeLivro tipoDeLivro2 = new TipoDeLivro("Ação", "Aventura");
+    Assinatura assinatura1 = new Assinatura(null, new Date(), new Date(), 100, usuario1, tipoDeAssinatura1);
+    Assinatura assinatura2 = new Assinatura(null, new Date(), new Date(), 200, usuario2, tipoDeAssinatura2);
 
-    ItemDeVenda itemDeVenda1 = new ItemDeVenda(2, "Assinar", 20.0);
-    ItemDeVenda itemDeVenda2 = new ItemDeVenda(1, "Enviar amassado", 40.0);
-
-    Venda venda1 = new Venda(12.0, "Cartão de Crédito", usuario1, Arrays.asList(itemDeVenda1, itemDeVenda2));
-    Venda venda2 = new Venda(25.0, "Boleto", usuario2, Arrays.asList(itemDeVenda1, itemDeVenda2));
+    TipoDeLivro tipoDeLivro1 = new TipoDeLivro(null, "Romance", "Comédia");
+    TipoDeLivro tipoDeLivro2 = new TipoDeLivro(null, "Ação", "Aventura");   
 
     Livro livro1 = new Livro(null, "As aventuras de douglas", "A sociedade do colar", "Um livro muito bom a respeito do douglas e seus colares",2,10,escritor1, tipoDeLivro1);
     Livro livro2 = new Livro(null, "O Homem que cumprimentava", "O inicio", "Um livro sobre um homem que gostava de cumprimentar",2,12,escritor2, tipoDeLivro2);
+
+    Venda venda1 = new Venda(null, 12.0, "Cartão de Crédito", usuario1);
+    Venda venda2 = new Venda(null, 25.0, "Boleto", usuario2);
+
+    ItemDeVenda itemDeVenda1 = new ItemDeVenda(venda1, livro1, 1, "Assinar", 20.0);
+    ItemDeVenda itemDeVenda2 = new ItemDeVenda(venda2, livro2, 2, "Enviar amassado", 40.0);
+
+    // venda1.setItems(Arrays.asList(itemDeVenda1));   
 
     Avaliacao avaliacao1 = new Avaliacao(null, 10, "Comentario1", livro1, usuario1);
     Avaliacao avaliacao2 = new Avaliacao(null, 9, "Comentario2", livro2, usuario2);
@@ -150,18 +152,19 @@ public class _DBService {
     ufRepository.saveAll(Arrays.asList(uf1, uf2));
     cidadeRepository.saveAll(Arrays.asList(cidade1, cidade2, cidade3, cidade4));
     bairroRepository.saveAll(Arrays.asList(bairro1, bairro2, bairro3, bairro4, bairro5, bairro6, bairro7, bairro8));
-    postRepository.saveAll(Arrays.asList(post1, post2));
-    tipoDeAssinaturaRepository.saveAll(Arrays.asList(tipoDeAssinatura1, tipoDeAssinatura2));
-    tipoDeLivroRepository.saveAll(Arrays.asList(tipoDeLivro1, tipoDeLivro2));
     usuarioRepository.saveAll(Arrays.asList(usuario1, usuario2));
-    vendaRepository.saveAll(Arrays.asList(venda1, venda2));
-
-    assinaturaRepository.saveAll(Arrays.asList(assinatura1, assinatura2));
-    avaliacaoRepository.saveAll(Arrays.asList(avaliacao1, avaliacao2));
-    capituloRepository.saveAll(Arrays.asList(capitulo1, capitulo2, capitulo3, capitulo4));
     escritorRepository.saveAll(Arrays.asList(escritor1, escritor2));
-    favoritoRepository.saveAll(Arrays.asList(favorito1, favorito2));
-    itemDeVendaRepository.saveAll(Arrays.asList(itemDeVenda1, itemDeVenda2));
+    postRepository.saveAll(Arrays.asList(post1, post2));
+
+    tipoDeAssinaturaRepository.saveAll(Arrays.asList(tipoDeAssinatura1, tipoDeAssinatura2));
+    assinaturaRepository.saveAll(Arrays.asList(assinatura1, assinatura2));
+    tipoDeLivroRepository.saveAll(Arrays.asList(tipoDeLivro1, tipoDeLivro2));
     livroRepository.saveAll(Arrays.asList(livro1, livro2));
+    capituloRepository.saveAll(Arrays.asList(capitulo1, capitulo2, capitulo3, capitulo4));
+    vendaRepository.saveAll(Arrays.asList(venda1, venda2));
+    itemDeVendaRepository.saveAll(Arrays.asList(itemDeVenda1, itemDeVenda2));
+
+    avaliacaoRepository.saveAll(Arrays.asList(avaliacao1, avaliacao2));
+    favoritoRepository.saveAll(Arrays.asList(favorito1, favorito2));
   }
 }

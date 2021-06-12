@@ -16,13 +16,7 @@ import lombok.*;
 @EqualsAndHashCode(of = {"id"})
 @Entity
 public class Assinatura implements Serializable {
-	public Assinatura() {
-	}
-	
-	public Assinatura(Object object, Date date, Date date2, int i, Usuario usuario1) {
-    }
-
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,9 +36,11 @@ public class Assinatura implements Serializable {
 	private double total;
 
 	// private TipoDeAssinatura tipoDeAssinatura;
-
-    @NotNull(message = "O Bairro do Usuário deve ser preenchido")
+  @NotNull(message = "O Bairro do Usuário deve ser preenchido")
 	@ManyToOne
-    @JoinColumn(name = "usuario_id")
+  @JoinColumn(name = "usuario_id")
 	private Usuario usuario;
+
+	@ManyToOne
+	private TipoDeAssinatura tipoDeAssinatura;
 }

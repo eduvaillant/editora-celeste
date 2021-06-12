@@ -11,13 +11,8 @@ import lombok.*;
 @EqualsAndHashCode(of = {"id"})
 @Entity
 public class Bairro implements Serializable {
-	public Bairro() {
-	}
-	
-	public Bairro(Object object, String string, Cidade cidade4) {
-    }
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

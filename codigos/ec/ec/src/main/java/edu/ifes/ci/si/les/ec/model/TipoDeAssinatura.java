@@ -14,11 +14,6 @@ import lombok.*;
 @EqualsAndHashCode(of = {"id"})
 @Entity
 public class TipoDeAssinatura implements Serializable {
-	public TipoDeAssinatura() {
-	}
-
-	public TipoDeAssinatura(String string, double d, List<Assinatura> list) {
-	}
 
 	private static final long serialVersionUID = 1L;
 
@@ -34,9 +29,5 @@ public class TipoDeAssinatura implements Serializable {
 	@Min(value = 1, message = "O valor do plano não pode ser grátis")
 	@NotNull(message = "Preencha o valor do plano")
 	@Digits(integer=6, fraction=2, message = "Valor do Empréstimo deve ser preenchido com dígitos")
-	private double valor;
-
-	@ManyToOne
-	@JoinColumn(name="assinatura_id")
-	private Assinatura[] assinatura;
+	private double valor;	
 }

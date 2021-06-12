@@ -13,13 +13,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @EqualsAndHashCode(of = {"id"})
 @Entity
 public class ItemDeVenda implements Serializable {
-	public ItemDeVenda() {
-    }
 
-	public ItemDeVenda(int i, String string, double d) {
-    }
-
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
 	@JsonIgnore
 	@EmbeddedId
@@ -36,4 +31,13 @@ public class ItemDeVenda implements Serializable {
 	@NotNull(message = "Valor do Item de Venda deve ser preenchido")
 	@Digits(integer=6, fraction=2, message = "Valor do Item de Venda deve ser preenchido com dígitos")
 	private double total;
+
+	@Builder
+	public ItemDeVenda(Venda venda, Livro livro, Integer quantidade, String observacao, double total) {
+		this.id.setVenda(venda);
+		this.id.setLivro(livro);
+		this.quantidade = quantidade;
+		this.observacao = observacao;
+		this.total = total;
+	}
 }

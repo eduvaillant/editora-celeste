@@ -18,11 +18,6 @@ import lombok.*;
 @EqualsAndHashCode(of = {"id"})
 @Entity
 public class Venda implements Serializable {
-  public Venda() {
-  }
-
-  public Venda(double d, String string, Usuario usuario1, List<ItemDeVenda> list) {
-  }
 
   private static final long serialVersionUID = 1L;
 
@@ -47,4 +42,12 @@ public class Venda implements Serializable {
   @NotBlank(message = "A venda deve possuir pelo menos um Item de Venda")
   @OneToMany(mappedBy = "id.venda", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<ItemDeVenda> itemDeVenda;
+
+  @Builder
+  public Venda(Integer id, Double total, String formaDePagamento, Usuario usuario) {
+    this.id = id;
+    this.total = total;
+    this.formaDePagamento = formaDePagamento;
+    this.usuario = usuario;
+  }
 }
