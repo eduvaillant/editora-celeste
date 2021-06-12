@@ -31,5 +31,4 @@ public class Avaliacao implements Serializable {
 
 	@ManyToOne
 	private Usuario usuario;
-
 }

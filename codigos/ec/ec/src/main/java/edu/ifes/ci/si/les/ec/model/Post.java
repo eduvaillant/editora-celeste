@@ -10,7 +10,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
-
 @Entity
 public class Post implements Serializable {
 
@@ -28,5 +27,4 @@ public class Post implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="escritor_id")
 	private Escritor escritor;
-
 }

@@ -10,7 +10,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
-
 @Entity
 public class TipoDeAssinatura implements Serializable {
 
@@ -33,5 +32,4 @@ public class TipoDeAssinatura implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="assinatura_id")
 	private Assinatura[] assinatura;
-
 }

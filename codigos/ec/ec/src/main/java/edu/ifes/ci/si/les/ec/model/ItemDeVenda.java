@@ -7,12 +7,13 @@ import javax.validation.constraints.*;
 import lombok.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
+@Entity
 public class ItemDeVenda implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@JsonIgnore
 	@EmbeddedId

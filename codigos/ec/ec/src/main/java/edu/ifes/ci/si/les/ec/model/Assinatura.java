@@ -37,6 +37,8 @@ public class Assinatura implements Serializable {
 
 	// private TipoDeAssinatura tipoDeAssinatura;
 
+  @NotNull(message = "O Bairro do Usuário deve ser preenchido")
 	@ManyToOne
+  @JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 }

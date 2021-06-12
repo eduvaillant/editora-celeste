@@ -10,7 +10,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
-
 @Entity
 public class TipoDeLivro implements Serializable {
 
@@ -29,5 +28,4 @@ public class TipoDeLivro implements Serializable {
 	@NotBlank(message = "Preencha o subgenero do livro")
 	@Size(min = 2, max = 150, message = "O tipo de subgenero do livro precisa ter no mínimo 2 letras")
 	private String subgenero;
-
 }

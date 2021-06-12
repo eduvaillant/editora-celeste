@@ -5,11 +5,11 @@ import javax.validation.constraints.*;
 import javax.persistence.*;
 import lombok.*;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
+@Entity
 public class Favorito implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -21,16 +21,13 @@ public class Favorito implements Serializable{
 
 	@NotNull(message = "O Usuário deve ser preenchido")
 	@ManyToOne()
-	@JoinColumn(name="livro_id")
 	private Usuario usuario;
 
 	@NotNull(message = "O Livro deve ser preenchido")
 	@ManyToOne()
-	@JoinColumn(name="livro_id")
 	private Livro livro;
 
 	@NotNull(message = "O Escritor deve ser preenchido")
 	@ManyToOne()
-	@JoinColumn(name="escritor_id")
 	private Escritor[] escritor;
 }

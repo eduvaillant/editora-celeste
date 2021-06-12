@@ -5,11 +5,11 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import lombok.*;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
+@Entity
 public class Livro implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -46,9 +46,4 @@ public class Livro implements Serializable {
 	@NotNull(message = "O Tipo de Livro deve ser preenchido")
   @ManyToOne()
 	private TipoDeLivro tipoDeLivro;
-
-	@NotNull(message = "O Livro deve ter no mínimo um Capítulo")
-  @OneToMany()
-  @JoinColumn(name = "capitulo_id")
-	private Capitulo[] capitulo;
 }
