@@ -27,11 +27,9 @@ public class Avaliacao implements Serializable {
 	private String comentario;
 
 	@ManyToOne
-	@JoinColumn(name="livro_id")
 	private Livro livro;
 
 	@ManyToOne
-	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
 
 }

@@ -4,10 +4,13 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
 import lombok.*;
 
 @MappedSuperclass
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(of = {"id"})
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -29,6 +32,5 @@ public class Usuario implements Serializable {
 
 	private String senha;
 
-	private Bairro bairro;
-
+	// private Bairro bairro;
 }

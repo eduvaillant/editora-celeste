@@ -40,13 +40,11 @@ public class Livro implements Serializable {
 	private Integer numero_paginas;
 
 	@NotNull(message = "O Escritor deve ser preenchido")
-  @OneToMany()
-  @JoinColumn(name = "escritor_id")
+  @ManyToOne()
 	private Escritor escritor;
 
 	@NotNull(message = "O Tipo de Livro deve ser preenchido")
   @ManyToOne()
-  @JoinColumn(name = "tipo_de_livro_id")
 	private TipoDeLivro tipoDeLivro;
 
 	@NotNull(message = "O Livro deve ter no mínimo um Capítulo")

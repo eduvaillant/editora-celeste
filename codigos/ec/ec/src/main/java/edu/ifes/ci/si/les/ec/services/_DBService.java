@@ -6,18 +6,17 @@ import java.text.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.ifes.ci.si.les.ec.model.Livro;
-
-import edu.ifes.ci.si.les.ec.repositories.LivroRepository;
+import edu.ifes.ci.si.les.ec.model.UF;
 
 @Service
 public class _DBService {  
   @Autowired
-  private LivroRepository LivroRepository;
 
-  public void instantiateTestDatabase() throws ParseException, IOException {     
+  public void instantiateTestDatabase() throws ParseException, IOException {    
+
     // Instanciando os objetos de modelo
-    Livro livro1 = new Livro();
-    Livro livro2 = new Livro();
+    UF uf1 = new UF(null, "ES", "Espírito Santo");
+    UF uf2 = new UF(null, "MG", "Minas Gerais");
+
   }
 }

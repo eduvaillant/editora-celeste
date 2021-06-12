@@ -26,8 +26,6 @@ public class Capitulo implements Serializable {
 	@NotBlank(message = "SubTitulo do Capitulo deve ser preenchido")
 	@Size(min = 1, max = 100, message = "SubTitulo do Capitulo deve ter entre 1 e 100 letras")   
 	private String subtitulo;
-
-
 	
 	// https://wordcounter.net/blog/2017/02/15/102944_how-many-words-chapter.html#:~:text=As%20a%20general%20guideline%2C%20chapters,decide%20on%20are%20merely%20guidelines.
 	// Essa fonte diz que geralmente livros tem de 3000 a 5000 palavras
@@ -39,7 +37,6 @@ public class Capitulo implements Serializable {
 	private String conteudo;
 
 	@ManyToOne
-	@JoinColumn(name="livro_id")
 	private Livro livro;
 
 }

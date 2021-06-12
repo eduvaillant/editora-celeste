@@ -1,15 +1,14 @@
 package edu.ifes.ci.si.les.ec.model;
 
-import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import lombok.*;
-@Data
+@Entity
+@Data 
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-@Entity
-public class Escritor extends Usuario implements Serializable {
+public class Escritor extends Usuario {
 	private static final long serialVersionUID = 1L;
 
 	@Column(length = 50)
@@ -18,8 +17,8 @@ public class Escritor extends Usuario implements Serializable {
 	private String nome_artistico;
 
 	@Column(length = 100)
-    @NotBlank(message = "Email deve ser preenchido")
-    @Size(min = 2, max = 100, message = "Email deve ter entre 2 e 100 caracteres")
+  @NotBlank(message = "Email deve ser preenchido")
+  @Size(min = 2, max = 100, message = "Email deve ter entre 2 e 100 caracteres")
 	private String email;
 
 	//https://en.wikipedia.org/wiki/E.164
@@ -32,5 +31,4 @@ public class Escritor extends Usuario implements Serializable {
 	//private Livro livro;
 
 	//private Favorito favorito;
-
 }

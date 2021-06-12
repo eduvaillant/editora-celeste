@@ -27,5 +27,4 @@ public class UF implements Serializable {
 	@NotBlank(message = "Nome da UF deve ser preenchida")
 	@Size(min = 2, max = 50, message = "Nome da UF deve ter entre 2 e 50 letras")
   private String nome;
-
 }

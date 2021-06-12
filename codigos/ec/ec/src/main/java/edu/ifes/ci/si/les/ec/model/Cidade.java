@@ -23,7 +23,5 @@ public class Cidade implements Serializable {
 	private String nome;
 
 	@ManyToOne
-	@JoinColumn(name="uf_id")
 	private UF uf;
-
 }

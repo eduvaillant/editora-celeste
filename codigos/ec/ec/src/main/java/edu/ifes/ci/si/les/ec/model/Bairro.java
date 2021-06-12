@@ -26,7 +26,6 @@ public class Bairro implements Serializable {
 	// private Usuario usuario;
 
 	@ManyToOne
-	@JoinColumn(name="cidade_id")
 	private Cidade cidade;
 	
 }

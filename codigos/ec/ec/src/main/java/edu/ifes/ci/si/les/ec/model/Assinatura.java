@@ -38,6 +38,5 @@ public class Assinatura implements Serializable {
 	// private TipoDeAssinatura tipoDeAssinatura;
 
 	@ManyToOne
-	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
 }
