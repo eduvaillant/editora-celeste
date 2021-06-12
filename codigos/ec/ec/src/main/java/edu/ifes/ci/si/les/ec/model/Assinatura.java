@@ -20,10 +20,16 @@ public class Assinatura implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@NotNull(message = "Data de início da assinatura deve ser preenchido")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date data_inicio;
 
+	@NotNull(message = "Data de término da assinatura deve ser preenchido")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date data_termino;
 
+	@NotNull(message = "Preencha o total da assinatura")
+	@Digits(integer=6, fraction=2, message="O total da assinatura deve ser preenchido com dígitos")
 	private int total;
 
 	// private TipoDeAssinatura tipoDeAssinatura;

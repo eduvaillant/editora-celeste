@@ -19,9 +19,13 @@ public class Avaliacao implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@NotNull(message = "Preencha a nota da avaliação")
+	@Digits(integer=3, fraction=1, message="A nota da avaliação deve ser preenchido com dígitos")
 	private Integer nota;
 
-	private Integer comentario;
+	@Column(length = 100)
+	@Size(min = 2, max = 100, message = "Comentário deve ter entre 2 e 100 caracteres")
+	private String comentario;
 
 	@ManyToOne
 	@JoinColumn(name="livro_id")
