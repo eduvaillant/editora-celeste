@@ -1,15 +1,38 @@
 package edu.ifes.ci.si.les.ec.model;
 
-public class Avaliacao {
+import java.io.Serializable;
 
+import javax.persistence.*;
+
+import lombok.*;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(of = {"id"})
+@Entity
+public class Avaliacao implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@NotNull(message = "Preencha a nota da avaliação")
+	@Digits(integer=3, fraction=1, message="A nota da avaliação deve ser preenchido com dígitos")
 	private Integer nota;
 
-	private Integer comentario;
+	@Column(length = 100)
+	@Size(min = 2, max = 100, message = "Comentário deve ter entre 2 e 100 caracteres")
+	private String comentario;
 
+	@ManyToOne
+	@JoinColumn(name="livro_id")
 	private Livro livro;
 
+	@ManyToOne
+	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
 
 }
