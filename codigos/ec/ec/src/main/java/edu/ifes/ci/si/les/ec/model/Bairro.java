@@ -1,9 +1,8 @@
 package edu.ifes.ci.si.les.ec.model;
 
 import java.io.Serializable;
-
 import javax.persistence.*;
-
+import javax.validation.constraints.*;
 import lombok.*;
 
 @Data
@@ -11,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 @Entity
-public class Bairro {
+public class Bairro implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 

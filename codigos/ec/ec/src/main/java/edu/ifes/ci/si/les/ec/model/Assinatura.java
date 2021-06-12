@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.*;
 
@@ -37,5 +40,4 @@ public class Assinatura implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
-
 }

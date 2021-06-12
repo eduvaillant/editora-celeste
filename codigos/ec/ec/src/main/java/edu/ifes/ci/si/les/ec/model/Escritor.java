@@ -1,20 +1,16 @@
 package edu.ifes.ci.si.les.ec.model;
 
 import java.io.Serializable;
+import javax.persistence.*;
+import javax.validation.constraints.*;
 import lombok.*;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = {"id"})
+@EqualsAndHashCode(callSuper = false)
 @Entity
-public class Escritor extends Usuario {
-
+public class Escritor extends Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	@Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
 
 	@Column(length = 50)
 	@NotBlank(message = "Nome Artistico deve ser preenchido")
@@ -29,7 +25,7 @@ public class Escritor extends Usuario {
 	//https://en.wikipedia.org/wiki/E.164
 	// 15 Caracteres é a  de tamanho maximo para numeros de telefone
 	@Column
-    @NotBlank(message = "telefone deve ser preenchido")
+  @NotBlank(message = "telefone deve ser preenchido")
 	@Size(min = 2, max = 16, message = "Telefone deve ter entre 2 e 16 caracteres")
 	private String telefone;
 

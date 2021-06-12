@@ -1,9 +1,8 @@
 package edu.ifes.ci.si.les.ec.model;
 
 import java.io.Serializable;
-
 import javax.persistence.*;
-
+import javax.validation.constraints.*;
 import lombok.*;
 
 @Data

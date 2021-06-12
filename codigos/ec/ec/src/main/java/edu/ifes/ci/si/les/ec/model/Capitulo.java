@@ -1,7 +1,9 @@
 package edu.ifes.ci.si.les.ec.model;
-import java.io.Serializable;
-import lombok.*;
 
+import java.io.Serializable;
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -11,7 +13,7 @@ public class Capitulo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@id
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
