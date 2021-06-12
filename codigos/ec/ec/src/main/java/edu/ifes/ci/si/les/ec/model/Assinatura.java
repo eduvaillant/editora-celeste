@@ -33,12 +33,13 @@ public class Assinatura implements Serializable {
 
 	@NotNull(message = "Preencha o total da assinatura")
 	@Digits(integer=6, fraction=2, message="O total da assinatura deve ser preenchido com dígitos")
-	private int total;
+	@Min(value = 1, message = "O Total da Venda deve ser maior que zero")
+	private double total;
 
 	// private TipoDeAssinatura tipoDeAssinatura;
 
-  @NotNull(message = "O Bairro do Usuário deve ser preenchido")
+    @NotNull(message = "O Bairro do Usuário deve ser preenchido")
 	@ManyToOne
-  @JoinColumn(name = "usuario_id")
+    @JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 }
