@@ -9,14 +9,9 @@ import lombok.*;
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 @Entity
-public class Cidade implements Serializable {
-	public Cidade() {
-	}
+public class Cidade implements Serializable {	
 
-	public Cidade(Object object, String string, UF uf2) {
-    }
-
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

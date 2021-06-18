@@ -11,13 +11,8 @@ import javax.validation.constraints.*;
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 public class UF implements Serializable {
-  public UF() {
-  }
 
-  public UF(Object object, String string, String string2) {
-  }
-
-private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

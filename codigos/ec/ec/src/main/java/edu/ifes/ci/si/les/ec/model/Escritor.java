@@ -11,9 +11,6 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 @Entity
 public class Escritor extends Usuario {
-	public Escritor() {
-	}
-
 	private static final long serialVersionUID = 1L;
 
 	@Column(length = 50)

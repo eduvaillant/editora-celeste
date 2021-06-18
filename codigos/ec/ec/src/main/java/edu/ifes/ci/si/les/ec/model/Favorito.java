@@ -10,14 +10,9 @@ import lombok.*;
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 @Entity
-public class Favorito implements Serializable{
-	public Favorito() {
-	}
+public class Favorito implements Serializable{	
 
-	public Favorito(Object object, Usuario usuario1, Livro livro1, Object object2) {
-    }
-
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

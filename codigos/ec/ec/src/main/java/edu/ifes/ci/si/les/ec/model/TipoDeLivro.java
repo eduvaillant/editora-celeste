@@ -11,12 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 @Entity
-public class TipoDeLivro implements Serializable {
-	public TipoDeLivro() {
-	}
-
-	public TipoDeLivro(String string, String string2) {
-	}
+public class TipoDeLivro implements Serializable {	
 
 	private static final long serialVersionUID = 1L;
 

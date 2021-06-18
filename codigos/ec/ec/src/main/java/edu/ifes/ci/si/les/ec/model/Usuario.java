@@ -20,13 +20,7 @@ import lombok.*;
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 @Inheritance(strategy=InheritanceType.JOINED)
-public class Usuario implements Serializable {
-  public Usuario() {
-  }
-
-	public Usuario(Integer id, String string2, String string3, String string6, int i, Date date, String string4, String string5,
-      Bairro bairro8) {
-  }
+public class Usuario implements Serializable {  
 
   private static final long serialVersionUID = 1L;
 
