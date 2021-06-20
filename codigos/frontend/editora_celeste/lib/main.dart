@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
-import 'package:components_venver/material.dart';
+// import 'package:components_venver/material.dart';
 
 void main() {
   runApp(MyApp());
@@ -37,27 +37,39 @@ class _TestePaginasState extends State<TestePaginas> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            OwButton(
-              margin: EdgeInsets.only(
-                top: 20,
-              ),
-              labelText: "Inicio",
-              onPressed: () {}
+            FlatButton(
+              onPressed: () {}, 
+              child: Text("Início"),
             ),
-            OwButton(
-              margin: EdgeInsets.only(
-                top: 20,
-              ),
-              labelText: "Escritores",
-              onPressed: () {}
+            FlatButton(
+              onPressed: () {}, 
+              child: Text("Escritores"),
             ),
-            OwButton(
-              margin: EdgeInsets.only(
-                top: 20,
-              ),
-              labelText: "Inicio",
-              onPressed: () {}
+            FlatButton(
+              onPressed: () {}, 
+              child: Text("Início"),
             ),
+            // OwButton(
+            //   margin: EdgeInsets.only(
+            //     top: 20,
+            //   ),
+            //   labelText: "Inicio",
+            //   onPressed: () {}
+            // ),
+            // OwButton(
+            //   margin: EdgeInsets.only(
+            //     top: 20,
+            //   ),
+            //   labelText: "Escritores",
+            //   onPressed: () {}
+            // ),
+            // OwButton(
+            //   margin: EdgeInsets.only(
+            //     top: 20,
+            //   ),
+            //   labelText: "Inicio",
+            //   onPressed: () {}
+            // ),
           ],
         ),
       ),

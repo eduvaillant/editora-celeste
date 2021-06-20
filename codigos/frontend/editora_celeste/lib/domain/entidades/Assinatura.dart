@@ -1,12 +1,12 @@
-// class Assinatura {
+class Assinatura {
 
-// 	private Integer id;
+	int? id;
 
-// 	private Date data_inicio;
+	DateTime? dataInicio;
 
-// 	private Date data_termino;
+	DateTime? dataTermino;
 
-// 	private double total;
+	double? total;
 
-// 	private Usuario usuario;
-// }
+	// Usuario? usuario;
+}
