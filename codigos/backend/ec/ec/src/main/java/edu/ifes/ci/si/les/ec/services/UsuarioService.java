@@ -22,7 +22,7 @@ public class UsuarioService {
       try {
         return repository.save(obj);
       } catch (DataIntegrityViolationException e) {
-          throw new DataIntegrityException("Campo(s) obrigatório(s) do Funcionário não foi(foram) preenchido(s): Bairro");
+          throw new DataIntegrityException("Campo(s) obrigatório(s) do Usuário não foi(foram) preenchido(s): Bairro");
       }
   }
 
@@ -44,7 +44,16 @@ public class UsuarioService {
     try {
       return repository.save(obj);
     } catch (DataIntegrityViolationException e) {
-        throw new DataIntegrityException("Campo(s) obrigatório(s) do Funcionário não foi(foram) preenchido(s): Bairro");
+        throw new DataIntegrityException("Campo(s) obrigatório(s) do Usuário não foi(foram) preenchido(s): Bairro");
     }
-}
+  }
+
+  public void delete(Integer id) {
+    findById(id);
+    try {
+        repository.deleteById(id);
+    } catch (DataIntegrityViolationException e) {
+        throw new DataIntegrityException("Não é possível excluir este Usuário!");
+    }
+  }
 }
