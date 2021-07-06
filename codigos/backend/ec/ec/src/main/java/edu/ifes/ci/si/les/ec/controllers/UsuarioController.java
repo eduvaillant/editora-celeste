@@ -43,4 +43,12 @@ public class UsuarioController {
     Collection<Usuario> collection = service.findAll();
     return ResponseEntity.ok().body(collection);
   }
+
+  @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+  public ResponseEntity<Usuario> update(@Valid @RequestBody Usuario obj, BindingResult br) {
+    if (br.hasErrors())
+      throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+    obj = service.update(obj);
+    return ResponseEntity.ok().body(obj);
+  }
 }

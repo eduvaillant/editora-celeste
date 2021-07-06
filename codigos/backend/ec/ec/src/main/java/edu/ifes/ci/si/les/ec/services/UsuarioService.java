@@ -38,4 +38,13 @@ public class UsuarioService {
   public Collection<Usuario> findAll() {
     return repository.findAll();
   } 
+
+  public Usuario update(Usuario obj) {
+    findById(obj.getId());
+    try {
+      return repository.save(obj);
+    } catch (DataIntegrityViolationException e) {
+        throw new DataIntegrityException("Campo(s) obrigatório(s) do Funcionário não foi(foram) preenchido(s): Bairro");
+    }
+}
 }
