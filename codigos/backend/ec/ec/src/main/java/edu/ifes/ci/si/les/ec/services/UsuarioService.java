@@ -1,5 +1,7 @@
 package edu.ifes.ci.si.les.ec.services;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -21,5 +23,9 @@ public class UsuarioService {
       } catch (DataIntegrityViolationException e) {
           throw new DataIntegrityException("Campo(s) obrigatório(s) do Funcionário não foi(foram) preenchido(s): Bairro");
       }
+  }
+
+  public Collection<Usuario> findAll() {
+    return repository.findAll();
   }
 }

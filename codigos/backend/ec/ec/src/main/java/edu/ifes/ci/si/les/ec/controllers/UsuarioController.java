@@ -1,5 +1,7 @@
 package edu.ifes.ci.si.les.ec.controllers;
 
+import java.util.Collection;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +29,11 @@ public class UsuarioController {
         throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
       obj = service.insert(obj);
       return ResponseEntity.ok().body(obj);
+  }
+
+  @RequestMapping(method = RequestMethod.GET)
+  public ResponseEntity<Collection<Usuario>> findAll() {
+    Collection<Usuario> collection = service.findAll();
+    return ResponseEntity.ok().body(collection);
   }
 }
