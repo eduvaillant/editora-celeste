@@ -57,4 +57,10 @@ public class UsuarioController {
     service.delete(id);
     return ResponseEntity.noContent().build();
   }
+
+  @RequestMapping(value = "/{email}/{senha}", method = RequestMethod.GET)
+  public ResponseEntity<Usuario> findByEmailAndSenha(@PathVariable String email, @PathVariable String senha) {
+      Usuario obj = service.findByEmailAndSenha(email, senha);
+      return ResponseEntity.ok().body(obj);
+  }
 }

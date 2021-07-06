@@ -107,7 +107,7 @@ public class _DBService {
     Bairro bairro8 = new Bairro(null, "Nova Lavras", cidade4);
 
     Usuario usuario1 = new Usuario(null, "Matheus", "111.111.111-11", "Rua do João", 10, new Date(), "abc@email.com", "123456", bairro8);
-    Usuario usuario2 = new Usuario(null, "Nicollas", "321.123.321-12", "Rua da Silva", 30, new Date(), "abc@email.com", "123456", bairro8);
+    Usuario usuario2 = new Usuario(null, "Nicollas", "321.123.321-12", "Rua da Silva", 30, new Date(), "abcd@email.com", "123456", bairro8);
 
     Escritor escritor1 = new Escritor(null, "Rodolfo da Costa", "135.521.130-10", "Rua dos anjos", 14, new Date(2000,11,4), "arthur@gmail.com", "senha", bairro1, "Arthur Christie", "arthur@gmail.com", "+5528999112234" );
     Escritor escritor2 = new Escritor(null, "Douglas Jr Abreu", "277.645.460-03", "Rua Arthur da Costa", 2, new Date(2002,5,4), "douglas@gmail.com", "senha2", bairro2, "Douglinhas ", "douglas@gmail.com", "+5528999335574" );

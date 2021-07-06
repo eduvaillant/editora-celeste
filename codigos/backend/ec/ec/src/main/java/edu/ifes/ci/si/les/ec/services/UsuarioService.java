@@ -56,4 +56,8 @@ public class UsuarioService {
         throw new DataIntegrityException("Não é possível excluir este Usuário!");
     }
   }
+
+  public Usuario findByEmailAndSenha(String email, String senha) {
+    return repository.findByEmailAndSenha(email, senha);
+  }  
 }
