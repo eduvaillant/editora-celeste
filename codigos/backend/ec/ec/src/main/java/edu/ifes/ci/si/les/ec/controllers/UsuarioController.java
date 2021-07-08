@@ -26,10 +26,10 @@ public class UsuarioController {
   
   @RequestMapping(method = RequestMethod.POST)
   public ResponseEntity<Usuario> insert(@Valid @RequestBody Usuario obj, BindingResult br) {
-      if (br.hasErrors())
-        throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-      obj = service.insert(obj);
-      return ResponseEntity.ok().body(obj);
+    if (br.hasErrors())
+      throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+    obj = service.insert(obj);
+    return ResponseEntity.ok().body(obj);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -60,7 +60,7 @@ public class UsuarioController {
 
   @RequestMapping(value = "/{email}/{senha}", method = RequestMethod.GET)
   public ResponseEntity<Usuario> findByEmailAndSenha(@PathVariable String email, @PathVariable String senha) {
-      Usuario obj = service.findByEmailAndSenha(email, senha);
-      return ResponseEntity.ok().body(obj);
+    Usuario obj = service.findByEmailAndSenha(email, senha);
+    return ResponseEntity.ok().body(obj);
   }
 }
