@@ -26,7 +26,7 @@ public class Escritor extends Usuario {
 	//https://en.wikipedia.org/wiki/E.164
 	// 15 Caracteres é a  de tamanho maximo para numeros de telefone
 	@Column
-  	@NotBlank(message = "telefone deve ser preenchido")
+  @NotBlank(message = "telefone deve ser preenchido")
 	@Size(min = 2, max = 16, message = "Telefone deve ter entre 2 e 16 caracteres")
 	private String telefone;
 
@@ -34,6 +34,7 @@ public class Escritor extends Usuario {
 	public Escritor(Integer id, String nome, String cpf, String rua, Integer numero, Date data_de_nascimento,  String email, String senha, Bairro bairro, String nome_artistico, String email_escritor, String telefone) {
 		super(id, nome, cpf, rua, numero, data_de_nascimento, email, senha, bairro);
 		this.email_escritor = email_escritor;
+		this.nome_artistico = nome_artistico;
 		this.telefone = telefone;
 	}
 }

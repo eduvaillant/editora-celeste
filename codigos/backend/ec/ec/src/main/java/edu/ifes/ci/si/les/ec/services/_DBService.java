@@ -109,8 +109,8 @@ public class _DBService {
     Usuario usuario1 = new Usuario(null, "Matheus", "111.111.111-11", "Rua do João", 10, new Date(), "abc@email.com", "123456", bairro8);
     Usuario usuario2 = new Usuario(null, "Nicollas", "321.123.321-12", "Rua da Silva", 30, new Date(), "abcd@email.com", "123456", bairro8);
 
-    Escritor escritor1 = new Escritor(null, "Rodolfo da Costa", "135.521.130-10", "Rua dos anjos", 14, new Date(2000,11,4), "arthur@gmail.com", "senha", bairro1, "Arthur Christie", "arthur@gmail.com", "+5528999112234" );
-    Escritor escritor2 = new Escritor(null, "Douglas Jr Abreu", "277.645.460-03", "Rua Arthur da Costa", 2, new Date(2002,5,4), "douglas@gmail.com", "senha2", bairro2, "Douglinhas ", "douglas@gmail.com", "+5528999335574" );
+    Escritor escritor1 = new Escritor(null, "Rodolfo da Costa", "135.521.130-10", "Rua dos anjos", 14, new Date(2000,11,4), "arthur@gmail.com", "123456", bairro1, "Arthur Christie", "arthur@gmail.com", "+5528999112234" );
+    Escritor escritor2 = new Escritor(null, "Douglas Jr Abreu", "277.645.460-03", "Rua Arthur da Costa", 2, new Date(2002,5,4), "douglas@gmail.com", "123456", bairro2, "Douglinhas Teste", "douglas@gmail.com", "+5528999335574" );
 
     Post post1 = new Post(null, "Essa semana lançaremos mais um capítulo do livro 'A história'", escritor1);
     Post post2 = new Post(null, "Hoje teremos Live no site roxo, participe conosco do nosso novo lançamento.", escritor1);
@@ -131,17 +131,15 @@ public class _DBService {
     Venda venda2 = new Venda(null, 25.0, "Boleto", usuario2);
 
     ItemDeVenda itemDeVenda1 = new ItemDeVenda(venda1, livro1, 1, "Assinar", 20.0);
-    ItemDeVenda itemDeVenda2 = new ItemDeVenda(venda2, livro2, 2, "Enviar amassado", 40.0);
-
-    // venda1.setItems(Arrays.asList(itemDeVenda1));   
+    ItemDeVenda itemDeVenda2 = new ItemDeVenda(venda2, livro1, 2, "Enviar amassado", 40.0);
 
     Avaliacao avaliacao1 = new Avaliacao(null, 10, "Comentario1", livro1, usuario1);
     Avaliacao avaliacao2 = new Avaliacao(null, 9, "Comentario2", livro2, usuario2);
 
-    Capitulo capitulo1 = new Capitulo(null, "O inicio", null, "Tudo está bem até não estar mais bem", livro1);
-    Capitulo capitulo2 = new Capitulo(null, "O Fim", null, "Tudo está mal até não estar mais mal", livro1);
-    Capitulo capitulo3 = new Capitulo(null, "Bom dia", null, "O homem entrou na casa e deu boa tarde", livro2);
-    Capitulo capitulo4 = new Capitulo(null, "Boa tarde", null, "O homem saiu da casa e deu boa noite", livro2);
+    Capitulo capitulo1 = new Capitulo(null, "O inicio", "Subtítulo", "Tudo está bem até não estar mais bem", livro1);
+    Capitulo capitulo2 = new Capitulo(null, "O Fim", "Subtítulo", "Tudo está mal até não estar mais mal", livro1);
+    Capitulo capitulo3 = new Capitulo(null, "Bom dia", "Subtítulo", "O homem entrou na casa e deu boa tarde", livro2);
+    Capitulo capitulo4 = new Capitulo(null, "Boa tarde", "Subtítulo", "O homem saiu da casa e deu boa noite", livro2);
 
     Favorito favorito1 = new Favorito(null, usuario1, livro1, null);
     Favorito favorito2 = new Favorito(null, usuario2, livro2, null);
