@@ -81,9 +81,6 @@ public class _DBService {
   private FavoritoRepository favoritoRepository;
 
   @Autowired
-  private ItemDeVendaRepository itemDeVendaRepository;
-
-  @Autowired
   private LivroRepository livroRepository;
 
   public void instantiateTestDatabase() throws ParseException, IOException {    
