@@ -31,7 +31,7 @@ public class Escritor extends Usuario {
 	private String telefone;
 
 	@Builder
-	public Escritor(Integer id, String nome, String cpf, String rua, Integer numero, Date data_de_nascimento,  String email, String senha, Bairro bairro, String nome_artistico, String email_escritor, String telefone) {
+	public Escritor(Integer id, String nome, String cpf, String rua, String numero, Date data_de_nascimento,  String email, String senha, Bairro bairro, String nome_artistico, String email_escritor, String telefone) {
 		super(id, nome, cpf, rua, numero, data_de_nascimento, email, senha, bairro);
 		this.email_escritor = email_escritor;
 		this.nome_artistico = nome_artistico;

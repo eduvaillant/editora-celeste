@@ -40,9 +40,10 @@ public class Usuario implements Serializable {
   @Size(min = 2, max = 50, message = "A rua da usuário deve ter entre 2 e 50 letras")
   private String rua;
 
-	@Digits(integer=4, fraction=0, message = "O número da casa do usuário deve ser preenchido com um valor inteiro")
-  private Integer numero;
+  @NotNull(message = "A número da casa do usuário deve ser preenchido")
+  private String numero;
 
+  @NotNull(message = "A data de nascimento do usuário deve ser preenchida")
 	@JsonFormat(pattern = "yyyy-MM-dd")
   private Date data_de_nascimento;
 

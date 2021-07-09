@@ -106,11 +106,11 @@ public class _DBService {
     Bairro bairro7 = new Bairro(null, "Vale do Sol", cidade4);
     Bairro bairro8 = new Bairro(null, "Nova Lavras", cidade4);
 
-    Usuario usuario1 = new Usuario(null, "Matheus", "111.111.111-11", "Rua do João", 10, new Date(), "abc@email.com", "123456", bairro8);
-    Usuario usuario2 = new Usuario(null, "Nicollas", "321.123.321-12", "Rua da Silva", 30, new Date(), "abcd@email.com", "123456", bairro8);
+    Usuario usuario1 = new Usuario(null, "Matheus", "111.111.111-11", "Rua do João", "10", new Date(), "abc@email.com", "123456", bairro8);
+    Usuario usuario2 = new Usuario(null, "Nicollas", "321.123.321-12", "Rua da Silva", "30", new Date(), "abcd@email.com", "123456", bairro8);
 
-    Escritor escritor1 = new Escritor(null, "Rodolfo da Costa", "135.521.130-10", "Rua dos anjos", 14, new Date(2000,11,4), "arthur@gmail.com", "123456", bairro1, "Arthur Christie", "arthur@gmail.com", "+5528999112234" );
-    Escritor escritor2 = new Escritor(null, "Douglas Jr Abreu", "277.645.460-03", "Rua Arthur da Costa", 2, new Date(2002,5,4), "douglas@gmail.com", "123456", bairro2, "Douglinhas Teste", "douglas@gmail.com", "+5528999335574" );
+    Escritor escritor1 = new Escritor(null, "Rodolfo da Costa", "135.521.130-10", "Rua dos anjos", "14", new Date(2000,11,4), "arthur@gmail.com", "123456", bairro1, "Arthur Christie", "arthur@gmail.com", "+5528999112234" );
+    Escritor escritor2 = new Escritor(null, "Douglas Jr Abreu", "277.645.460-03", "Rua Arthur da Costa", "2", new Date(2002,5,4), "douglas@gmail.com", "123456", bairro2, "Douglinhas Teste", "douglas@gmail.com", "+5528999335574" );
 
     Post post1 = new Post(null, "Essa semana lançaremos mais um capítulo do livro 'A história'", escritor1);
     Post post2 = new Post(null, "Hoje teremos Live no site roxo, participe conosco do nosso novo lançamento.", escritor1);
@@ -132,6 +132,10 @@ public class _DBService {
 
     ItemDeVenda itemDeVenda1 = new ItemDeVenda(venda1, livro1, 1, "Assinar", 20.0);
     ItemDeVenda itemDeVenda2 = new ItemDeVenda(venda2, livro1, 2, "Enviar amassado", 40.0);
+
+
+    venda1.setItemDeVenda(Arrays.asList(itemDeVenda1));
+    venda2.setItemDeVenda(Arrays.asList(itemDeVenda2));
 
     Avaliacao avaliacao1 = new Avaliacao(null, 10, "Comentario1", livro1, usuario1);
     Avaliacao avaliacao2 = new Avaliacao(null, 9, "Comentario2", livro2, usuario2);
@@ -157,7 +161,7 @@ public class _DBService {
     livroRepository.saveAll(Arrays.asList(livro1, livro2));
     capituloRepository.saveAll(Arrays.asList(capitulo1, capitulo2, capitulo3, capitulo4));
     vendaRepository.saveAll(Arrays.asList(venda1, venda2));
-    itemDeVendaRepository.saveAll(Arrays.asList(itemDeVenda1, itemDeVenda2));
+    // itemDeVendaRepository.saveAll(Arrays.asList(itemDeVenda1, itemDeVenda2));
 
     avaliacaoRepository.saveAll(Arrays.asList(avaliacao1, avaliacao2));
     favoritoRepository.saveAll(Arrays.asList(favorito1, favorito2));
