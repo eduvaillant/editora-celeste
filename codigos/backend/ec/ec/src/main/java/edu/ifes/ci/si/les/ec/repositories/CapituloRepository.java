@@ -7,6 +7,7 @@ import edu.ifes.ci.si.les.ec.model.Capitulo;
 
 @Repository
 public interface CapituloRepository extends JpaRepository<Capitulo, Integer> {  
-
+  @Transactional(readOnly = true)
+  public Collection<Capitulo> findByBook(Integer id);
 }
 
