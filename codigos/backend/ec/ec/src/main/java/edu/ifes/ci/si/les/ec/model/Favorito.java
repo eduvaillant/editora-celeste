@@ -23,11 +23,9 @@ public class Favorito implements Serializable{
 	@ManyToOne()
 	private Usuario usuario;
 
-	@NotNull(message = "O Livro deve ser preenchido")
 	@ManyToOne()
 	private Livro livro;
 
-	@NotNull(message = "O Escritor deve ser preenchido")
 	@ManyToOne()
 	private Escritor[] escritor;
 }

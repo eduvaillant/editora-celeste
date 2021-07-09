@@ -22,17 +22,17 @@ public class UsuarioService {
       try {
         return repository.save(obj);
       } catch (DataIntegrityViolationException e) {
-          throw new DataIntegrityException("Campo(s) obrigatório(s) do Usuário não foi(foram) preenchido(s): Bairro");
+          throw new DataIntegrityException("Campo(s) obrigatório(s) do Usuário não foi(foram) preenchido(s).");
       }
   }
 
   public Usuario findById(Integer id) {
     try {
-        Usuario obj = repository.findById(id).get();
-        return obj;
-      } catch (NoSuchElementException e) {
-        throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Usuario.class.getName());
-      }
+      Usuario obj = repository.findById(id).get();
+      return obj;
+    } catch (NoSuchElementException e) {
+      throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Usuario.class.getName());
+    }
   }
 
   public Collection<Usuario> findAll() {

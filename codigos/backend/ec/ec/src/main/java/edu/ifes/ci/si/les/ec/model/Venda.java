@@ -4,11 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 import lombok.*;
 
@@ -39,7 +35,6 @@ public class Venda implements Serializable {
 	private Usuario usuario;
 	
   @NotNull(message = "A venda deve possuir pelo menos um Item de Venda")
-  @NotBlank(message = "A venda deve possuir pelo menos um Item de Venda")
   @OneToMany(mappedBy = "id.venda", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<ItemDeVenda> itemDeVenda;
 
