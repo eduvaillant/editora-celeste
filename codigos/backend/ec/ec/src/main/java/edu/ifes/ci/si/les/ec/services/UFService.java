@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import edu.ifes.ci.si.les.ec.model.UF;
+import edu.ifes.ci.si.les.ec.repositories.UFRepository;
+import edu.ifes.ci.si.les.ec.services.exceptions.*;
+
 @Service
 public class UFService {
   @Autowired
