@@ -25,10 +25,10 @@ public class LivroController {
 
   @RequestMapping(method = RequestMethod.POST)
   public ResponseEntity<Livro> insert(@Valid @RequestBody Livro obj, BindingResult br) {
-    if (br.hasErrors())
-      throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-    obj = service.insert(obj);
-    return ResponseEntity.ok().body(obj);
+      if (br.hasErrors())
+        throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+      obj = service.insert(obj);
+      return ResponseEntity.ok().body(obj);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -37,12 +37,14 @@ public class LivroController {
     return ResponseEntity.ok().body(obj);
   }
 
+  // Listar todos livros
   @RequestMapping(method = RequestMethod.GET)
   public ResponseEntity<Collection<Livro>> findAll() {
     Collection<Livro> collection = service.findAll();
     return ResponseEntity.ok().body(collection);
   }
 
+  // Listar todos livros por autor
   @RequestMapping(value = "/escritor/{id}", method = RequestMethod.GET)
   public ResponseEntity<Collection<Livro>> findByAuthor(@PathVariable Integer id) {
     Collection<Livro> collection = service.findByEscritorId(id);
