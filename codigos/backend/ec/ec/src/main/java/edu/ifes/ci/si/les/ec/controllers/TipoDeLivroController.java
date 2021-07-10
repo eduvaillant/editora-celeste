@@ -13,18 +13,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.ifes.ci.si.les.ec.model.Livro;
-import edu.ifes.ci.si.les.ec.services.LivroService;
+import edu.ifes.ci.si.les.ec.model.TipoDeLivro;
+import edu.ifes.ci.si.les.ec.services.TipoDeLivroService;
 import edu.ifes.ci.si.les.ec.services.exceptions.ConstraintException;
 
 @RestController()
-@RequestMapping(value = "/livros")
-public class LivroController {
+@RequestMapping(value = "/tipo-de-livro")
+public class TipoDeLivroController {
   @Autowired
-  private LivroService service;
+  private TipoDeLivroService service;
 
   @RequestMapping(method = RequestMethod.POST)
-  public ResponseEntity<Livro> insert(@Valid @RequestBody Livro obj, BindingResult br) {
+  public ResponseEntity<TipoDeLivro> insert(@Valid @RequestBody TipoDeLivro obj, BindingResult br) {
     if (br.hasErrors())
       throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
     obj = service.insert(obj);
@@ -32,25 +32,19 @@ public class LivroController {
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-  public ResponseEntity<Livro> find(@PathVariable Integer id) {
-    Livro obj = service.findById(id);
+  public ResponseEntity<TipoDeLivro> find(@PathVariable Integer id) {
+    TipoDeLivro obj = service.findById(id);
     return ResponseEntity.ok().body(obj);
   }
 
   @RequestMapping(method = RequestMethod.GET)
-  public ResponseEntity<Collection<Livro>> findAll() {
-    Collection<Livro> collection = service.findAll();
-    return ResponseEntity.ok().body(collection);
-  }
-
-  @RequestMapping(value = "/escritor/{id}", method = RequestMethod.GET)
-  public ResponseEntity<Collection<Livro>> findByAuthor(@PathVariable Integer id) {
-    Collection<Livro> collection = service.findByEscritorId(id);
+  public ResponseEntity<Collection<TipoDeLivro>> findAll() {
+    Collection<TipoDeLivro> collection = service.findAll();
     return ResponseEntity.ok().body(collection);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-  public ResponseEntity<Livro> update(@Valid @RequestBody Livro obj, BindingResult br) {
+  public ResponseEntity<TipoDeLivro> update(@Valid @RequestBody TipoDeLivro obj, BindingResult br) {
     if (br.hasErrors())
       throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
     obj = service.update(obj);
