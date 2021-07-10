@@ -22,7 +22,7 @@ public class UFService {
       return repository.save(obj);
     } catch (DataIntegrityViolationException e) {
       // TODO corrigir mensagem
-      throw new DataIntegrityException("Campo(s) obrigatório(s) do Livro não foi(foram) preenchido(s): Bairro")
+      throw new DataIntegrityException("Campo(s) obrigatório(s) do UF não foi(foram) preenchido(s)")
     }
   }
 
@@ -31,7 +31,7 @@ public class UFService {
       UF obj = repository.findById(id).get();
       return obj;
     } catch (NoSuchException e) {
-      throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Livro.class.getName());
+      throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + UF.class.getName());
     }
   }
 
@@ -44,7 +44,7 @@ public class UFService {
     try {
       return repository.save(obj);
     } catch (DataIntegrityViolationException e) {
-      throw new DataIntegrityException("Campo(s) obrigatório(s) do Livro não foi(foram) preenchido(s): Bairro");
+      throw new DataIntegrityException("Campo(s) obrigatório(s) do UF não foi(foram) preenchido(s)");
     }
   }
 
