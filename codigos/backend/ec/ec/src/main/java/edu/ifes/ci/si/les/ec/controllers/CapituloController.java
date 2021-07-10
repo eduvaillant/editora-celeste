@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.ifes.ci.si.les.ec.model.Livro;
 import edu.ifes.ci.si.les.ec.model.Capitulo;
 import edu.ifes.ci.si.les.ec.services.CapituloService;
 import edu.ifes.ci.si.les.ec.services.exceptions.ConstraintException;
@@ -23,13 +22,13 @@ import edu.ifes.ci.si.les.ec.services.exceptions.ConstraintException;
 public class CapituloController {
   @Autowired
   private CapituloService service;
-  
+
   @RequestMapping(method = RequestMethod.POST)
   public ResponseEntity<Capitulo> insert(@Valid @RequestBody Capitulo obj, BindingResult br) {
-      if (br.hasErrors())
-        throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
-      obj = service.insert(obj);
-      return ResponseEntity.ok().body(obj);
+    if (br.hasErrors())
+      throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+    obj = service.insert(obj);
+    return ResponseEntity.ok().body(obj);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)

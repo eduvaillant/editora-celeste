@@ -45,9 +45,9 @@ public class LivroController {
   }
 
   // Listar todos livros por autor
-  @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+  @RequestMapping(value = "/escritor/{id}", method = RequestMethod.GET)
   public ResponseEntity<Collection<Livro>> findByAuthor(@PathVariable Integer id) {
-    Collection<Livro> collection = service.findByAuthor(id);
+    Collection<Livro> collection = service.findByEscritorId(id);
     return ResponseEntity.ok().body(collection);
   }
 

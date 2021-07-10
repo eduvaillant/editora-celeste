@@ -17,7 +17,7 @@ public class LivroService {
   @Autowired
   private LivroRepository repository;
 
-  public Livro insert(Usuario obj) {
+  public Livro insert(Livro obj) {
     obj.setId(null);
     try {
       return repository.save(obj);
@@ -36,9 +36,9 @@ public class LivroService {
     }
   }
 
-  public Collection<Livro> findByAuthor(Integer id) {
+  public Collection<Livro> findByEscritorId(Integer id) {
     try {
-      Collection<Livro> obj = repository.findByAuthor(id);
+      Collection<Livro> obj = repository.findByEscritorId(id);
       return obj;
     } catch (NoSuchElementException e) {
       throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Usuario.class.getName());
@@ -49,7 +49,7 @@ public class LivroService {
     return repository.findAll();
   } 
 
-  public Livro update(Usuario obj) {
+  public Livro update(Livro obj) {
     findById(obj.getId());
     try {
       return repository.save(obj);

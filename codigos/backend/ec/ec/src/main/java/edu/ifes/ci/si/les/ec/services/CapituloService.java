@@ -8,7 +8,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import edu.ifes.ci.si.les.ec.model.Capitulo;
-import edu.ifes.ci.si.les.ec.model.Capitulo;
+import edu.ifes.ci.si.les.ec.model.Livro;
 import edu.ifes.ci.si.les.ec.repositories.CapituloRepository;
 import edu.ifes.ci.si.les.ec.services.exceptions.*;
 
@@ -18,13 +18,12 @@ public class CapituloService {
   @Autowired
   private CapituloRepository repository;
 
-  public Capitulo insert(Usuario obj) {
+  public Capitulo insert(Capitulo obj) {
     obj.setId(null);
     try {
       return repository.save(obj);
     } catch (DataIntegrityViolationException e) {
-        // TODO corrigir mensagem
-        throw new DataIntegrityException("Campo(s) obrigatório(s) do Capitulo não foi(foram) preenchido(s): Bairro");
+        throw new DataIntegrityException("Campo(s) obrigatório(s) do Capitulo não foi(foram) preenchido(s): ");
     }
   }
 
@@ -37,12 +36,12 @@ public class CapituloService {
     }
   }
 
-  public Collection<Capitulo> findByBook(Integer id) {
+  public Collection<Capitulo> findByBook(Integer livro_id) {
     try {
-      Capitulo obj = repository.findByBook(id);
+      Collection<Capitulo> obj = repository.findByLivroId(livro_id);
       return obj;
     } catch (NoSuchElementException e) {
-      throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Usuario.class.getName());
+      throw new ObjectNotFoundException("Objeto não encontrado! Id: " + livro_id + ", Tipo: " + Capitulo.class.getName());
     }
   }
 
@@ -50,12 +49,12 @@ public class CapituloService {
     return repository.findAll();
   } 
 
-  public Capitulo update(Usuario obj) {
+  public Capitulo update(Capitulo obj) {
     findById(obj.getId());
     try {
       return repository.save(obj);
     } catch (DataIntegrityViolationException e) {
-        throw new DataIntegrityException("Campo(s) obrigatório(s) do Capitulo não foi(foram) preenchido(s): Bairro");
+        throw new DataIntegrityException("Campo(s) obrigatório(s) do Capitulo não foi(foram) preenchido(s).");
     }
   }
 
@@ -64,7 +63,7 @@ public class CapituloService {
     try {
         repository.deleteById(id);
     } catch (DataIntegrityViolationException e) {
-        throw new DataIntegrityException("Não é possível excluir este Usuário!");
+        throw new DataIntegrityException("Não é possível excluir este Capítulo!");
     }
   }
 }
