@@ -22,7 +22,6 @@ public class LivroService {
     try {
       return repository.save(obj);
     } catch (DataIntegrityViolationException e) {
-        // TODO corrigir mensagem
         throw new DataIntegrityException("Campo(s) obrigatório(s) do Livro não foi(foram) preenchido(s): Bairro");
     }
   }
@@ -63,7 +62,7 @@ public class LivroService {
     try {
         repository.deleteById(id);
     } catch (DataIntegrityViolationException e) {
-        throw new DataIntegrityException("Não é possível excluir este Usuário!");
+        throw new DataIntegrityException("Não é possível excluir este Livro!");
     }
   }
 }

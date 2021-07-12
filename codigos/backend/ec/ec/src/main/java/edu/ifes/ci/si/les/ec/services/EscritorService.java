@@ -22,7 +22,7 @@ public class EscritorService {
     try {
       return repository.save(obj);
     } catch(DataIntegrityException e) {
-      throw new DataIntegrityException("Campo(s) obrigatório(s) do Escritor não foi(foram) preenchido(s).");
+      throw new DataIntegrityException("Campo(s) obrigatório(s) do Escritor não foi(foram) preenchido(s): ");
     }
   }
 

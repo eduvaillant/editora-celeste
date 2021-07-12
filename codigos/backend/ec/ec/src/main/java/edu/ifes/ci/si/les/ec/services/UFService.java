@@ -52,7 +52,7 @@ public class UFService {
     try {
       repository.deleteById(id);
     } catch (DataIntegrityViolationException e) {
-      throw new DataIntegrityException("Não é possível excluir este Usuário!");
+      throw new DataIntegrityException("Não é possível excluir esta UF!");
     }
   }
 }
