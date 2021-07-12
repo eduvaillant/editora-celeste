@@ -13,18 +13,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.ifes.ci.si.les.ec.model.UF;
-import edu.ifes.ci.si.les.ec.services.UFService;
-import edu.ifes.ci.si.les.ec.services.exceptions.*;
+import edu.ifes.ci.si.les.ec.model.TipoDeAssinatura;
+import edu.ifes.ci.si.les.ec.services.TipoDeAssinaturaService;
+import edu.ifes.ci.si.les.ec.services.exceptions.ConstraintException;
 
-@RestController()
-@RequestMapping(value = "/uf")
-public class UFController {
+@RestController
+@RequestMapping(value = "tipo-de-assinatura")
+public class TipoDeAssinaturaController {
   @Autowired
-  private UFService service;
+  private TipoDeAssinaturaService service;
 
   @RequestMapping(method = RequestMethod.POST)
-  public ResponseEntity<UF> insert(@Valid @RequestBody UF obj, BindingResult br) {
+  public ResponseEntity<TipoDeAssinatura> insert(@Valid @RequestBody TipoDeAssinatura obj, BindingResult br) {
     if (br.hasErrors())
       throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
     obj = service.insert(obj);
@@ -32,19 +32,19 @@ public class UFController {
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-  public ResponseEntity<UF> find(@PathVariable Integer id) {
-    UF obj = service.findById(id);
+  public ResponseEntity<TipoDeAssinatura> find(@PathVariable Integer id) {
+    TipoDeAssinatura obj = service.findById(id);
     return ResponseEntity.ok().body(obj);
   }
 
   @RequestMapping(method = RequestMethod.GET)
-  public ResponseEntity<Collection<UF>> findAll() {
-    Collection<UF> collection = service.findAll();
+  public ResponseEntity<Collection<TipoDeAssinatura>> findAll() {
+    Collection<TipoDeAssinatura> collection = service.findAll();
     return ResponseEntity.ok().body(collection);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-  public ResponseEntity<UF> update(@Valid @RequestBody UF obj, BindingResult br) {
+  public ResponseEntity<TipoDeAssinatura> update(@Valid @RequestBody TipoDeAssinatura obj, BindingResult br) {
     if (br.hasErrors())
       throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
     obj = service.update(obj);
