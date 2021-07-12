@@ -7,44 +7,44 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import edu.ifes.ci.si.les.ec.model.TipoDeLivro;
-import edu.ifes.ci.si.les.ec.repositories.TipoDeLivroRepository;
+import edu.ifes.ci.si.les.ec.model.TipoDeAssinatura;
+import edu.ifes.ci.si.les.ec.repositories.TipoDeAssinaturaRepository;
 import edu.ifes.ci.si.les.ec.services.exceptions.DataIntegrityException;
 import edu.ifes.ci.si.les.ec.services.exceptions.ObjectNotFoundException;
 
 @Service
-public class TipoDeLivroService {
+public class TipoDeAssinaturaService {
   @Autowired
-  private TipoDeLivroRepository repository;
+  private TipoDeAssinaturaRepository repository;
 
-  public TipoDeLivro insert(TipoDeLivro obj) {
+  public TipoDeAssinatura insert(TipoDeAssinatura obj) {
     obj.setId(null);
     try {
       return repository.save(obj);
     } catch (DataIntegrityViolationException e) {
-      throw new DataIntegrityException("Campo(s) obrigatório(s) do Tipo de Livro não foi(foram) preenchido(s): Bairro");
+      throw new DataIntegrityException("Campo(s) obrigatório(s) do Tipo de Assinatura não foi(foram) preenchido(s): ");
     }
   }
 
-  public TipoDeLivro findById(Integer id) {
+  public TipoDeAssinatura findById(Integer id) {
     try {
-      TipoDeLivro obj = repository.findById(id).get();
+      TipoDeAssinatura obj = repository.findById(id).get();
       return obj;
     } catch (NoSuchElementException e) {
-      throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + TipoDeLivro.class.getName());
+      throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + TipoDeAssinatura.class.getName());
     }
   }
 
-  public Collection<TipoDeLivro> findAll() {
+  public Collection<TipoDeAssinatura> findAll() {
     return repository.findAll();
   } 
 
-  public TipoDeLivro update(TipoDeLivro obj) {
+  public TipoDeAssinatura update(TipoDeAssinatura obj) {
     findById(obj.getId());
     try {
       return repository.save(obj);
     } catch (DataIntegrityViolationException e) {
-      throw new DataIntegrityException("Campo(s) obrigatório(s) do Tipo de Livro não foi(foram) preenchido(s): ");
+      throw new DataIntegrityException("Campo(s) obrigatório(s) do Tipo de Assinatura não foi(foram) preenchido(s): ");
     }
   }
 
@@ -53,7 +53,7 @@ public class TipoDeLivroService {
     try {
         repository.deleteById(id);
     } catch (DataIntegrityViolationException e) {
-        throw new DataIntegrityException("Não é possível excluir este Tipo de Livro!");
+        throw new DataIntegrityException("Não é possível excluir este Tipo de Assinatura!");
     }
   }
 }
