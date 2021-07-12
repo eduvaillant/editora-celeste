@@ -30,7 +30,6 @@ import edu.ifes.ci.si.les.ec.repositories.CapituloRepository;
 import edu.ifes.ci.si.les.ec.repositories.CidadeRepository;
 import edu.ifes.ci.si.les.ec.repositories.EscritorRepository;
 import edu.ifes.ci.si.les.ec.repositories.FavoritoRepository;
-import edu.ifes.ci.si.les.ec.repositories.ItemDeVendaRepository;
 import edu.ifes.ci.si.les.ec.repositories.LivroRepository;
 import edu.ifes.ci.si.les.ec.repositories.PostRepository;
 import edu.ifes.ci.si.les.ec.repositories.TipoDeAssinaturaRepository;

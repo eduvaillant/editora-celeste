@@ -8,7 +8,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import edu.ifes.ci.si.les.ec.model.Capitulo;
-import edu.ifes.ci.si.les.ec.model.Livro;
 import edu.ifes.ci.si.les.ec.repositories.CapituloRepository;
 import edu.ifes.ci.si.les.ec.services.exceptions.*;
 
