@@ -1,49 +1,51 @@
 package edu.ifes.ci.si.les.ec.services;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import edu.ifes.ci.si.les.ec.model.UF;
-import edu.ifes.ci.si.les.ec.repositories.UFRepository;
+import edu.ifes.ci.si.les.ec.model.Cidade;
+import edu.ifes.ci.si.les.ec.repositories.CidadeRepository;
 import edu.ifes.ci.si.les.ec.services.exceptions.*;
 
 @Service
-public class UFService {
+public class CidadeService {
   @Autowired
-  private UFRepository repository;
+  private CidadeRepository repository;
 
-  public UF insert(UF obj) {
+  public Cidade insert(Cidade obj) {
     obj.setId(null);
     try {
       return repository.save(obj);
     } catch (DataIntegrityViolationException e) {
-      throw new DataIntegrityException("Campo(s) obrigatório(s) do UF não foi(foram) preenchido(s)");
+      // TODO corrigir mensagem
+      throw new DataIntegrityException("Campo(s) obrigatório(s) da Cidade não foi(foram) preenchido(s)");  
     }
   }
 
-  public UF findById(Integer id) {
+  public Cidade findById(Integer id) {
     try {
-      UF obj = repository.findById(id).get();
+      Cidade obj = repository.findById(id).get();
       return obj;
     } catch (NoSuchElementException e) {
       throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + UF.class.getName());
     }
   }
 
-  public Collection<UF> findAll() {
+  public Collection<Cidade> findAll() {
     return repository.findAll();
   }
 
-  public UF update(UF obj) {
+  public Cidade update(Cidade obj) {
     findById(obj.getId());
     try {
       return repository.save(obj);
     } catch (DataIntegrityViolationException e) {
-      throw new DataIntegrityException("Campo(s) obrigatório(s) do UF não foi(foram) preenchido(s)");
+      throw new DataIntegrityException("Campo(s) obrigatório(s) da Cidade não foi(foram) preenchido(s)");
     }
   }
 
@@ -52,7 +54,7 @@ public class UFService {
     try {
       repository.deleteById(id);
     } catch (DataIntegrityViolationException e) {
-      throw new DataIntegrityException("Não é possível excluir este UF!");
+      throw new DataIntegrityException("Não é possível excluir esta Cidade!");
     }
   }
 }
