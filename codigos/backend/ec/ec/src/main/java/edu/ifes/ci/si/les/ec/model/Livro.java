@@ -23,7 +23,7 @@ public class Livro implements Serializable {
 	@Size(min = 2, max = 150, message = "A titulo precisa ter no mínimo 2 letras e no máximo 150")
 	private String titulo;
 
-	@Column(length = 150)
+	@Column(length = 255)
 	private String imagem_capa;
 
 	@Column(length = 150)
