@@ -19,9 +19,14 @@ public class Livro implements Serializable {
 	private Integer id;
 
 	@Column(length = 150)
-  @NotBlank(message = "Preencha o Título")
-  @Size(min = 2, max = 150, message = "A titulo precisa ter no mínimo 2 letras e no máximo 150")
+	@NotBlank(message = "Preencha o Título")
+	@Size(min = 2, max = 150, message = "A titulo precisa ter no mínimo 2 letras e no máximo 150")
 	private String titulo;
+
+	@Column(length = 150)
+	@NotBlank(message = "Preencha a imagem da capa")
+	private String imagem_capa;
+
 
 	@Column(length = 150)
 	@NotBlank(message = "Preencha o Subtítulo")
@@ -40,10 +45,10 @@ public class Livro implements Serializable {
 	private Integer numero_paginas;
 
 	@NotNull(message = "O Escritor deve ser preenchido")
-  @ManyToOne()
+  	@ManyToOne()
 	private Escritor escritor;
 
 	@NotNull(message = "O Tipo de Livro deve ser preenchido")
-  @ManyToOne()
+  	@ManyToOne()
 	private TipoDeLivro tipoDeLivro;
 }
