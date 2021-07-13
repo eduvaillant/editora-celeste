@@ -24,7 +24,6 @@ public class Livro implements Serializable {
 	private String titulo;
 
 	@Column(length = 150)
-	@NotBlank(message = "Preencha a imagem da capa")
 	private String imagem_capa;
 
 	@Column(length = 150)
