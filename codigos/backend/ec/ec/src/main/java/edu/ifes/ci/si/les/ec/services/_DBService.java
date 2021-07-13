@@ -120,8 +120,8 @@ public class _DBService {
     TipoDeLivro tipoDeLivro1 = new TipoDeLivro(null, "Romance", "Comédia");
     TipoDeLivro tipoDeLivro2 = new TipoDeLivro(null, "Ação", "Aventura");   
 
-    Livro livro1 = new Livro(null, "As aventuras de douglas", "A sociedade do colar", "Um livro muito bom a respeito do douglas e seus colares",2,10,escritor1, tipoDeLivro1);
-    Livro livro2 = new Livro(null, "O Homem que cumprimentava", "O inicio", "Um livro sobre um homem que gostava de cumprimentar",2,12,escritor2, tipoDeLivro2);
+    Livro livro1 = new Livro(null, "As aventuras de douglas","imagem", "A sociedade do colar", "Um livro muito bom a respeito do douglas e seus colares",2,10,escritor1, tipoDeLivro1);
+    Livro livro2 = new Livro(null, "O Homem que cumprimentava", "imagem", "O inicio", "Um livro sobre um homem que gostava de cumprimentar",2,12,escritor2, tipoDeLivro2);
 
     Venda venda1 = new Venda(null, 12.0, "Cartão de Crédito", usuario1);
     Venda venda2 = new Venda(null, 25.0, "Boleto", usuario2);
