@@ -21,7 +21,7 @@ public class UFService {
     try {
       return repository.save(obj);
     } catch (DataIntegrityViolationException e) {
-      throw new DataIntegrityException("Campo(s) obrigatório(s) do UF não foi(foram) preenchido(s)");
+      throw new DataIntegrityException("Campo(s) obrigatório(s) da UF não foi(foram) preenchido(s)");
     }
   }
 
@@ -43,7 +43,7 @@ public class UFService {
     try {
       return repository.save(obj);
     } catch (DataIntegrityViolationException e) {
-      throw new DataIntegrityException("Campo(s) obrigatório(s) do UF não foi(foram) preenchido(s)");
+      throw new DataIntegrityException("Campo(s) obrigatório(s) da UF não foi(foram) preenchido(s)");
     }
   }
 
@@ -52,7 +52,7 @@ public class UFService {
     try {
       repository.deleteById(id);
     } catch (DataIntegrityViolationException e) {
-      throw new DataIntegrityException("Não é possível excluir este UF!");
+      throw new DataIntegrityException("Não é possível excluir esta UF!");
     }
   }
 }

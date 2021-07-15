@@ -19,9 +19,12 @@ public class Livro implements Serializable {
 	private Integer id;
 
 	@Column(length = 150)
-  @NotBlank(message = "Preencha o Título")
-  @Size(min = 2, max = 150, message = "A titulo precisa ter no mínimo 2 letras e no máximo 150")
+	@NotBlank(message = "Preencha o Título")
+	@Size(min = 2, max = 150, message = "A titulo precisa ter no mínimo 2 letras e no máximo 150")
 	private String titulo;
+
+	@Column(length = 255)
+	private String imagem_capa;
 
 	@Column(length = 150)
 	@NotBlank(message = "Preencha o Subtítulo")

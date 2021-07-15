@@ -106,7 +106,7 @@ public class _DBService {
     Usuario usuario2 = new Usuario(null, "Nicollas", "321.123.321-12", "Rua da Silva", "30", new Date(), "abcd@email.com", "123456", bairro8);
 
     Escritor escritor1 = new Escritor(null, "Rodolfo da Costa", "135.521.130-10", "Rua dos anjos", "14", new Date(2000,11,4), "arthur@gmail.com", "123456", bairro1, "Arthur Christie", "arthur@gmail.com", "+5528999112234" );
-    Escritor escritor2 = new Escritor(null, "Douglas Jr Abreu", "277.645.460-03", "Rua Arthur da Costa", "2", new Date(2002,5,4), "douglas@gmail.com", "123456", bairro2, "Douglinhas Teste", "douglas@gmail.com", "+5528999335574" );
+    Escritor escritor2 = new Escritor(null, "Douglas Jr Abreu", "277.645.460-03", "Rua Arthur da Costa", "2", new Date(2002,5,4), "douglas@gmail.com", "123456", bairro2, "Douglinhas Teste", "douglas@gmail.com", "+5528999335574", "imagem" );
 
     Post post1 = new Post(null, "Essa semana lançaremos mais um capítulo do livro 'A história'", escritor1);
     Post post2 = new Post(null, "Hoje teremos Live no site roxo, participe conosco do nosso novo lançamento.", escritor1);
@@ -120,8 +120,8 @@ public class _DBService {
     TipoDeLivro tipoDeLivro1 = new TipoDeLivro(null, "Romance", "Comédia");
     TipoDeLivro tipoDeLivro2 = new TipoDeLivro(null, "Ação", "Aventura");   
 
-    Livro livro1 = new Livro(null, "As aventuras de douglas", "A sociedade do colar", "Um livro muito bom a respeito do douglas e seus colares",2,10,escritor1, tipoDeLivro1);
-    Livro livro2 = new Livro(null, "O Homem que cumprimentava", "O inicio", "Um livro sobre um homem que gostava de cumprimentar",2,12,escritor2, tipoDeLivro2);
+    Livro livro1 = new Livro(null, "As aventuras de douglas","imagem", "A sociedade do colar", "Um livro muito bom a respeito do douglas e seus colares",2,10,escritor1, tipoDeLivro1);
+    Livro livro2 = new Livro(null, "O Homem que cumprimentava", "imagem", "O inicio", "Um livro sobre um homem que gostava de cumprimentar",2,12,escritor2, tipoDeLivro2);
 
     Venda venda1 = new Venda(null, 12.0, "Cartão de Crédito", usuario1);
     Venda venda2 = new Venda(null, 25.0, "Boleto", usuario2);

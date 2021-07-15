@@ -5,12 +5,14 @@ import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.stereotype.Service;
 
 import edu.ifes.ci.si.les.ec.model.Bairro;
 import edu.ifes.ci.si.les.ec.repositories.BairroRepository;
 import edu.ifes.ci.si.les.ec.services.exceptions.DataIntegrityException;
 import edu.ifes.ci.si.les.ec.services.exceptions.ObjectNotFoundException;
 
+@Service
 public class BairroService {
   @Autowired
   private BairroRepository repository;
@@ -51,7 +53,7 @@ public class BairroService {
     try {
       repository.deleteById(id);
     } catch (DataIntegrityViolationException e) {
-      throw new DataIntegrityException("Não é possível excluir esta Cidade!");
+      throw new DataIntegrityException("Não é possível excluir este Bairro!");
     }
   }
 }
