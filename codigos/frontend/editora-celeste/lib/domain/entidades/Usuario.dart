@@ -1,20 +1,83 @@
-// class Usuario {
+import 'dart:convert';
 
-// 	private Integer id;
+import 'Bairro.dart';
 
-// 	private String nome;
+class Usuario {
+	int? id;
+	String? nome;
+  String? cpf;
+  String? rua;
+  int? numero;
+  String? dataDeNascimento;
+	String? email;
+  String? senha;
+  Bairro? bairro;
 
-//   private String cpf;
+  Usuario({
+    this.id,
+    this.nome,
+    this.cpf,
+    this.rua,
+    this.numero,
+    this.dataDeNascimento,
+    this.email,
+    this.senha,
+    this.bairro,
+  });
 
-//   private String rua;
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'nome': nome,
+      'cpf': cpf,
+      'rua': rua,
+      'numero': numero,
+      'dataDeNascimento': dataDeNascimento,
+      'email': email,
+      'senha': senha,
+      'bairro': bairro?.toMap(),
+    };
+  }
 
-//   private Integer numero;
+  factory Usuario.fromMap(Map<String, dynamic> map) {
+    return Usuario(
+      id: map['id'],
+      nome: map['nome'],
+      cpf: map['cpf'],
+      rua: map['rua'],
+      numero: map['numero'],
+      dataDeNascimento: map['dataDeNascimento'],
+      email: map['email'],
+      senha: map['senha'],
+      bairro: Bairro.fromMap(map['bairro']),
+    );
+  }
 
-//   private Date data_de_nascimento;
+  String toJson() => json.encode(toMap());
 
-// 	private String email;
+  factory Usuario.fromJson(String source) => Usuario.fromMap(json.decode(source));
 
-//   private String senha;
-
-//   private Bairro bairro;
-// }
+  Usuario copyWith({
+    int? id,
+    String? nome,
+    String? cpf,
+    String? rua,
+    int? numero,
+    String? dataDeNascimento,
+    String? email,
+    String? senha,
+    Bairro? bairro,
+  }) {
+    return Usuario(
+      id: id ?? this.id,
+      nome: nome ?? this.nome,
+      cpf: cpf ?? this.cpf,
+      rua: rua ?? this.rua,
+      numero: numero ?? this.numero,
+      dataDeNascimento: dataDeNascimento ?? this.dataDeNascimento,
+      email: email ?? this.email,
+      senha: senha ?? this.senha,
+      bairro: bairro ?? this.bairro,
+    );
+  }
+}
