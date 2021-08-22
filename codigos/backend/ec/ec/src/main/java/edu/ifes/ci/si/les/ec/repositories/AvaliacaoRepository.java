@@ -7,6 +7,6 @@ import edu.ifes.ci.si.les.ec.model.Avaliacao;
 
 @Repository
 public interface AvaliacaoRepository extends JpaRepository<Avaliacao, Integer> {  
-
+    
 }
 

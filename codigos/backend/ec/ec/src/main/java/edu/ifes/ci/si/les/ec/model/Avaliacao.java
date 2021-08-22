@@ -27,8 +27,10 @@ public class Avaliacao implements Serializable {
 	private String comentario;
 
 	@ManyToOne
+	@NotNull(message = "Preencha o Livro")
 	private Livro livro;
 
 	@ManyToOne
+	@NotNull(message = "Preencha o Usuário")
 	private Usuario usuario;
 }
