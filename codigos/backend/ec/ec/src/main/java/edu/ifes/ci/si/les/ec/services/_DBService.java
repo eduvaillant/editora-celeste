@@ -17,6 +17,7 @@ import edu.ifes.ci.si.les.ec.model.Escritor;
 import edu.ifes.ci.si.les.ec.model.Favorito;
 import edu.ifes.ci.si.les.ec.model.ItemDeVenda;
 import edu.ifes.ci.si.les.ec.model.Livro;
+import edu.ifes.ci.si.les.ec.model.LivroUsuario;
 import edu.ifes.ci.si.les.ec.model.Post;
 import edu.ifes.ci.si.les.ec.model.TipoDeAssinatura;
 import edu.ifes.ci.si.les.ec.model.TipoDeLivro;
@@ -31,6 +32,7 @@ import edu.ifes.ci.si.les.ec.repositories.CidadeRepository;
 import edu.ifes.ci.si.les.ec.repositories.EscritorRepository;
 import edu.ifes.ci.si.les.ec.repositories.FavoritoRepository;
 import edu.ifes.ci.si.les.ec.repositories.LivroRepository;
+import edu.ifes.ci.si.les.ec.repositories.LivroUsuarioRepository;
 import edu.ifes.ci.si.les.ec.repositories.PostRepository;
 import edu.ifes.ci.si.les.ec.repositories.TipoDeAssinaturaRepository;
 import edu.ifes.ci.si.les.ec.repositories.TipoDeLivroRepository;
@@ -82,6 +84,9 @@ public class _DBService {
   @Autowired
   private LivroRepository livroRepository;
 
+  @Autowired
+  private LivroUsuarioRepository livroUsuarioRepository;
+
   public void instantiateTestDatabase() throws ParseException, IOException {    
 
     // Instanciando os objetos de modelo
@@ -123,6 +128,9 @@ public class _DBService {
     Livro livro1 = new Livro(null, "As aventuras de douglas","imagem", "A sociedade do colar", "Um livro muito bom a respeito do douglas e seus colares",2,10,escritor1, tipoDeLivro1);
     Livro livro2 = new Livro(null, "O Homem que cumprimentava", "imagem", "O inicio", "Um livro sobre um homem que gostava de cumprimentar",2,12,escritor2, tipoDeLivro2);
 
+    LivroUsuario livroUsuario1 = new LivroUsuario(null,livro1, usuario1);
+    LivroUsuario livroUsuario2 = new LivroUsuario(null,livro2, usuario2);
+
     Venda venda1 = new Venda(null, 12.0, "Cartão de Crédito", usuario1);
     Venda venda2 = new Venda(null, 25.0, "Boleto", usuario2);
 
@@ -161,5 +169,7 @@ public class _DBService {
 
     avaliacaoRepository.saveAll(Arrays.asList(avaliacao1, avaliacao2));
     favoritoRepository.saveAll(Arrays.asList(favorito1, favorito2));
+
+    livroUsuarioRepository.saveAll(Arrays.asList(livroUsuario1, livroUsuario2));
   }
 }
