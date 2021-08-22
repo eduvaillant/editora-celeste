@@ -43,10 +43,10 @@ public class Livro implements Serializable {
 	private Integer numero_paginas;
 
 	@NotNull(message = "O Escritor deve ser preenchido")
-  @ManyToOne()
+  	@ManyToOne()
 	private Escritor escritor;
 
 	@NotNull(message = "O Tipo de Livro deve ser preenchido")
-  @ManyToOne()
+  	@ManyToOne()
 	private TipoDeLivro tipoDeLivro;
 }

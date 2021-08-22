@@ -1,7 +1,6 @@
 package edu.ifes.ci.si.les.ec.model;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
