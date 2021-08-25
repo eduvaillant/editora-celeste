@@ -1,5 +1,6 @@
 package edu.ifes.ci.si.les.ec.services;
 
+import java.util.Collection;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,15 @@ public class AssinaturaService {
 		}
 	}
 
+	public Collection<Assinatura> findByUsuario(Integer livro_id) {
+    try {
+      Collection<Assinatura> obj = repository.findByUsuarioId(livro_id);
+      return obj;
+    } catch (NoSuchElementException e) {
+      throw new ObjectNotFoundException("Objeto não encontrado! Id: " + livro_id + ", Tipo: " + Assinatura.class.getName());
+    }
+  }
+  
   public Assinatura update(Assinatura obj) {
     findById(obj.getId());
     try {

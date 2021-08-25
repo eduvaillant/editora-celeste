@@ -1,5 +1,7 @@
 package edu.ifes.ci.si.les.ec.controllers;
 
+import java.util.Collection;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,12 @@ public class AssinaturaController {
       throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
     obj = service.insert(obj);
     return ResponseEntity.ok().body(obj);
+  }
+
+	@RequestMapping(value ="/usuario/{id}", method = RequestMethod.GET)
+  public ResponseEntity<Collection<Assinatura>> findByUsuario(@PathVariable Integer id) {
+    Collection<Assinatura> collection = service.findByUsuario(id);
+    return ResponseEntity.ok().body(collection);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
