@@ -31,9 +31,27 @@ public class AvaliacaoController {
         return ResponseEntity.ok().body(obj);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Avaliacao> find(@PathVariable Integer id) {
+        Avaliacao obj = service.findById(id);
+        return ResponseEntity.ok().body(obj);
+    }
+
     @RequestMapping(value = "/livro/{id}", method = RequestMethod.GET)
     public ResponseEntity<Collection<Avaliacao>> findByLivro(@PathVariable Integer id) {
         Collection<Avaliacao> collection = service.findByLivro(id);
         return ResponseEntity.ok().body(collection);
+    }
+
+    @RequestMapping(value = "/usuario/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Collection<Avaliacao>> findByUsuario(@PathVariable Integer id) {
+        Collection<Avaliacao> collection = service.findByUsuario(id);
+        return ResponseEntity.ok().body(collection);
+    }  
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+      service.delete(id);
+      return ResponseEntity.noContent().build();
     }
 }

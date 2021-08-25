@@ -12,5 +12,8 @@ import edu.ifes.ci.si.les.ec.model.Avaliacao;
 public interface AvaliacaoRepository extends JpaRepository<Avaliacao, Integer> {  
     @Transactional(readOnly = true)
     public Collection<Avaliacao> findByLivroId(Integer livro_id);
+
+    @Transactional(readOnly = true)
+    public Collection<Avaliacao> findByUsuarioId(Integer livro_id);
 }
 

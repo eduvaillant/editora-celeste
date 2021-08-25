@@ -32,11 +32,11 @@ public class AvaliacaoService {
             throw new DataIntegrityException("Campo(s) obrigatório(s) da Avaliação não foi(foram) preenchido(s).");
         }
         return null;
-    }
+    }    
 
     // Implementando as regras de negócio relacionadas ao processo de negócio da Avaliação
- 	// Regra de Negócio 1: O Usuário só pode avaliar um livro que ele possui
- 	public boolean verificarRegrasDeNegocio(Avaliacao obj) { 		
+ 	  // Regra de Negócio 1: O Usuário só pode avaliar um livro que ele possui
+ 	  public boolean verificarRegrasDeNegocio(Avaliacao obj) { 		
         // Regra de Negócio 1: O Usuário só pode avaliar um livro que ele possui
         boolean hasBook = livroUsuarioRepository.userHasBook(obj.getLivro().getId(), obj.getUsuario().getId());
         if (!hasBook) {
@@ -52,5 +52,32 @@ public class AvaliacaoService {
         } catch (NoSuchElementException e) {
           throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Avaliacao.class.getName());
         }
+    }
+
+    public Collection<Avaliacao> findByUsuario(Integer id) {
+        try {
+          Collection<Avaliacao> obj = avaliacaoRepository.findByUsuarioId(id);
+          return obj;
+        } catch (NoSuchElementException e) {
+          throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Avaliacao.class.getName());
+        }
+    }
+
+    public Avaliacao findById(Integer id) {
+      try {
+        Avaliacao obj = avaliacaoRepository.findById(id).get();
+        return obj;
+      } catch (NoSuchElementException e) {
+        throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Avaliacao.class.getName());
+      }
+    }
+
+    public void delete(Integer id) {
+      findById(id);
+      try {
+          avaliacaoRepository.deleteById(id);
+      } catch (DataIntegrityViolationException e) {
+          throw new DataIntegrityException("Não é possível excluir esta!");
+      }
     }
 }
