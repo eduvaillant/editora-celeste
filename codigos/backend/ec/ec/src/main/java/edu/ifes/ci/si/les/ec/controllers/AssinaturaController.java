@@ -1,7 +1,5 @@
 package edu.ifes.ci.si.les.ec.controllers;
 
-import java.util.Collection;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +30,6 @@ public class AssinaturaController {
     obj = service.insert(obj);
     return ResponseEntity.ok().body(obj);
   }
-
 
   @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
   public ResponseEntity<Assinatura> update(@Valid @RequestBody Assinatura obj, BindingResult br) {

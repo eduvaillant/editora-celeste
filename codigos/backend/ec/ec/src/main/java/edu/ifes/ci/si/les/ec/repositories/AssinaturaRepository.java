@@ -7,6 +7,6 @@ import edu.ifes.ci.si.les.ec.model.Assinatura;
 
 @Repository
 public interface AssinaturaRepository extends JpaRepository<Assinatura, Integer> {  
-
+    
 }
 
