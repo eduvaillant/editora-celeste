@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import edu.ifes.ci.si.les.ec.model.Livro;
 import java.util.Collection;
+
 @Repository
 public interface LivroRepository extends JpaRepository<Livro, Integer> {  
   @Transactional(readOnly = true)

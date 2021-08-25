@@ -1,5 +1,8 @@
 package edu.ifes.ci.si.les.ec.services;
 
+import java.util.Collection;
+import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -9,6 +12,7 @@ import edu.ifes.ci.si.les.ec.repositories.AvaliacaoRepository;
 import edu.ifes.ci.si.les.ec.repositories.LivroUsuarioRepository;
 import edu.ifes.ci.si.les.ec.services.exceptions.BusinessRuleException;
 import edu.ifes.ci.si.les.ec.services.exceptions.DataIntegrityException;
+import edu.ifes.ci.si.les.ec.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class AvaliacaoService {
@@ -39,5 +43,14 @@ public class AvaliacaoService {
             throw new BusinessRuleException("Este usuário não possui o livro!");
         }
         return true;
+    }
+
+    public Collection<Avaliacao> findByLivro(Integer id) {
+        try {
+          Collection<Avaliacao> obj = avaliacaoRepository.findByLivroId(id);
+          return obj;
+        } catch (NoSuchElementException e) {
+          throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Avaliacao.class.getName());
+        }
     }
 }

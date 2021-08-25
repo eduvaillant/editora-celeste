@@ -12,6 +12,6 @@ import edu.ifes.ci.si.les.ec.model.LivroUsuario;
 public interface LivroUsuarioRepository extends JpaRepository<LivroUsuario, Integer> {  
     @Transactional(readOnly = true)
     @Query(value = "SELECT COUNT(*) > 0 FROM livro_usuario WHERE livro_id = ?1 AND usuario_id = ?2", nativeQuery = true)
-    public boolean userHasBook(Integer book_id, Integer user_id);
+    public boolean userHasBook(Integer livro_id, Integer usuario_id);
 }
 
