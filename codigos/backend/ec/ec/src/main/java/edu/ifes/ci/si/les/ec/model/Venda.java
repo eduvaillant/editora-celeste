@@ -13,7 +13,7 @@ import lombok.*;
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 @Entity
-public class Venda implements Serializable {
+public class Venda implements Serializable { // TODO: Alterar "Venda" para "Compra"
 
   private static final long serialVersionUID = 1L;
 
