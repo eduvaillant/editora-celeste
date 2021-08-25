@@ -1,10 +1,13 @@
 package edu.ifes.ci.si.les.ec.controllers;
 
+import java.util.Collection;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,5 +29,11 @@ public class AvaliacaoController {
             throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
         obj = service.insert(obj);
         return ResponseEntity.ok().body(obj);
+    }
+
+    @RequestMapping(value = "/livro/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Collection<Avaliacao>> findByLivro(@PathVariable Integer id) {
+        Collection<Avaliacao> collection = service.findByLivro(id);
+        return ResponseEntity.ok().body(collection);
     }
 }
