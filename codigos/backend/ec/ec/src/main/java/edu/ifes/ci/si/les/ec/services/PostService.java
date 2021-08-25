@@ -16,7 +16,7 @@ import edu.ifes.ci.si.les.ec.services.exceptions.*;
 public class PostService {
   @Autowired
   private PostRepository repository;
-    //
+  
   public Post insert(Post obj) {
     obj.setId(null);
     try {
