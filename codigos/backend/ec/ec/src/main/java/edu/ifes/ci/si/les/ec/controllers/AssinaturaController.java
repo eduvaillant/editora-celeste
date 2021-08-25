@@ -33,6 +33,11 @@ public class AssinaturaController {
     return ResponseEntity.ok().body(obj);
   }
 
+	@RequestMapping(value ="/usuario/{id}", method = RequestMethod.GET)
+  public ResponseEntity<Collection<Assinatura>> findByUsuario(@PathVariable Integer id) {
+    Collection<Assinatura> collection = service.findByUsuario(id);
+    return ResponseEntity.ok().body(collection);
+  }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
   public ResponseEntity<Assinatura> update(@Valid @RequestBody Assinatura obj, BindingResult br) {

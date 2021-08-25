@@ -33,6 +33,14 @@ public class AssinaturaService {
 			throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Assinatura.class.getName());
 		}
 	}
+	public Collection<Assinatura> findByUsuario(Integer livro_id) {
+    try {
+      Collection<Assinatura> obj = repository.findByUsuarioId(livro_id);
+      return obj;
+    } catch (NoSuchElementException e) {
+      throw new ObjectNotFoundException("Objeto não encontrado! Id: " + livro_id + ", Tipo: " + Assinatura.class.getName());
+    }
+  }
   public Assinatura update(Assinatura obj) {
     findById(obj.getId());
     try {
