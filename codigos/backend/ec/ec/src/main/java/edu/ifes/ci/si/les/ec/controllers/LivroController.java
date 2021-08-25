@@ -20,7 +20,7 @@ import edu.ifes.ci.si.les.ec.services.exceptions.ConstraintException;
 
 @RestController()
 @CrossOrigin
-@RequestMapping(value = "/livros")
+@RequestMapping(value = "/livro")
 public class LivroController {
   @Autowired
   private LivroService service;
