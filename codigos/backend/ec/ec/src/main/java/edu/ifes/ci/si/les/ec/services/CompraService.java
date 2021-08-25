@@ -1,25 +1,21 @@
 package edu.ifes.ci.si.les.ec.services;
 
+import java.util.Collection;
+import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import edu.ifes.ci.si.les.ec.model.Avaliacao;
-import edu.ifes.ci.si.les.ec.repositories.AvaliacaoRepository;
-import edu.ifes.ci.si.les.ec.repositories.LivroUsuarioRepository;
-import edu.ifes.ci.si.les.ec.services.exceptions.BusinessRuleException;
+import edu.ifes.ci.si.les.ec.model.Compra;
+import edu.ifes.ci.si.les.ec.repositories.CompraRepository;
 import edu.ifes.ci.si.les.ec.services.exceptions.DataIntegrityException;
+import edu.ifes.ci.si.les.ec.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class CompraService {
     @Autowired
-    private LivroUsuarioRepository livroUsuarioRepository;
-
-    @Autowired
     private CompraRepository compraRepository;
-
-    @Autowired
-    private LivroRepository livroRepository;
 
     public Compra insert(Compra obj) {
         try {
@@ -35,14 +31,15 @@ public class CompraService {
 
     // Implementando as regras de negócio relacionadas ao processo de negócio da Compra
  	// Regra de Negócio 1: O Usuário só pode comprar livros previamente cadastrados e disponibilizados pelos escritores
- 	public boolean verificarRegrasDeNegocio(Compra obj) { 		
-        // Regra de Negócio 1: O Usuário só pode comprar livros cadastrados
+ 	public boolean verificarRegrasDeNegocio(Compra obj) { 
+        // TODO Revisar como implementar esse for, pois esta como erro   
+
+        /* Regra de Negócio 1: O Usuário só pode comprar livros cadastrados
         for (ItemDeVenda item : obj.itemDeVenda) {
-            Livro livro = livroRepository.find(item.id); // TODO: Verificar (ou: find(item.id.livro))
-            if (!livro) {
+            Livro livro = livroRepository.find(item.id);
                 return false;
             }
-        }
+        } */
         return true;
     }
 
@@ -55,7 +52,7 @@ public class CompraService {
         }
     }
 
-    public Compra findByUsuarioId(Integer id) {
+    public Collection<Compra> findByUsuarioId(Integer id) {
         try {
             Collection<Compra> obj = compraRepository.findByUsuarioId(id);
             return obj;
@@ -81,8 +78,4 @@ public class CompraService {
             throw new DataIntegrityException("Não é possível excluir esta Compra!");
         }
     }
-
-    public Collection<Compra> findAll() { // TODO: Função não necessária
-        return compraRepository.findAll();
-    } 
 }

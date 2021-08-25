@@ -7,7 +7,7 @@ import lombok.*;
 
 @Embeddable
 @Data
-@EqualsAndHashCode(of = {"venda", "livro"})
+@EqualsAndHashCode(of = {"compra", "livro"})
 public class ItemDeVendaPK implements Serializable {
     public ItemDeVendaPK() {
     }
@@ -15,8 +15,8 @@ public class ItemDeVendaPK implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ManyToOne
-    @JoinColumn(name = "venda_id")
-    private Venda venda;
+    @JoinColumn(name = "compra_id")
+    private Compra compra;
 
     @ManyToOne
     @JoinColumn(name = "livro_id")

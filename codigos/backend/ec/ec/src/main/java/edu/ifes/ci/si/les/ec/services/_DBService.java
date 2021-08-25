@@ -23,12 +23,13 @@ import edu.ifes.ci.si.les.ec.model.TipoDeAssinatura;
 import edu.ifes.ci.si.les.ec.model.TipoDeLivro;
 import edu.ifes.ci.si.les.ec.model.UF;
 import edu.ifes.ci.si.les.ec.model.Usuario;
-import edu.ifes.ci.si.les.ec.model.Venda;
+import edu.ifes.ci.si.les.ec.model.Compra;
 import edu.ifes.ci.si.les.ec.repositories.AssinaturaRepository;
 import edu.ifes.ci.si.les.ec.repositories.AvaliacaoRepository;
 import edu.ifes.ci.si.les.ec.repositories.BairroRepository;
 import edu.ifes.ci.si.les.ec.repositories.CapituloRepository;
 import edu.ifes.ci.si.les.ec.repositories.CidadeRepository;
+import edu.ifes.ci.si.les.ec.repositories.CompraRepository;
 import edu.ifes.ci.si.les.ec.repositories.EscritorRepository;
 import edu.ifes.ci.si.les.ec.repositories.FavoritoRepository;
 import edu.ifes.ci.si.les.ec.repositories.LivroRepository;
@@ -38,8 +39,8 @@ import edu.ifes.ci.si.les.ec.repositories.TipoDeAssinaturaRepository;
 import edu.ifes.ci.si.les.ec.repositories.TipoDeLivroRepository;
 import edu.ifes.ci.si.les.ec.repositories.UFRepository;
 import edu.ifes.ci.si.les.ec.repositories.UsuarioRepository;
-import edu.ifes.ci.si.les.ec.repositories.VendaRepository;
 
+//TODO alterar as variáveis com nome de venda para compra
 @Service
 public class _DBService {  
   @Autowired
@@ -64,7 +65,7 @@ public class _DBService {
   private UsuarioRepository usuarioRepository;
 
   @Autowired
-  private VendaRepository vendaRepository;
+  private CompraRepository compraRepository;
 
   @Autowired
   private AssinaturaRepository assinaturaRepository;
@@ -131,8 +132,8 @@ public class _DBService {
     LivroUsuario livroUsuario1 = new LivroUsuario(null,livro1, usuario1);
     LivroUsuario livroUsuario2 = new LivroUsuario(null,livro2, usuario2);
 
-    Venda venda1 = new Venda(null, 12.0, "Cartão de Crédito", usuario1);
-    Venda venda2 = new Venda(null, 25.0, "Boleto", usuario2);
+    Compra venda1 = new Compra(null, 12.0, "Cartão de Crédito", usuario1);
+    Compra venda2 = new Compra(null, 25.0, "Boleto", usuario2);
 
     ItemDeVenda itemDeVenda1 = new ItemDeVenda(venda1, livro1, 1, "Assinar", 20.0);
     ItemDeVenda itemDeVenda2 = new ItemDeVenda(venda2, livro1, 2, "Enviar amassado", 40.0);
@@ -164,7 +165,7 @@ public class _DBService {
     tipoDeLivroRepository.saveAll(Arrays.asList(tipoDeLivro1, tipoDeLivro2));
     livroRepository.saveAll(Arrays.asList(livro1, livro2));
     capituloRepository.saveAll(Arrays.asList(capitulo1, capitulo2, capitulo3, capitulo4));
-    vendaRepository.saveAll(Arrays.asList(venda1, venda2));
+    compraRepository.saveAll(Arrays.asList(venda1, venda2));
     // itemDeVendaRepository.saveAll(Arrays.asList(itemDeVenda1, itemDeVenda2));
 
     avaliacaoRepository.saveAll(Arrays.asList(avaliacao1, avaliacao2));

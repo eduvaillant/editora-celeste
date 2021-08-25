@@ -13,7 +13,7 @@ import lombok.*;
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 @Entity
-public class Venda implements Serializable { // TODO: Alterar "Venda" para "Compra"
+public class Compra implements Serializable { // TODO: Alterar "Venda" para "Compra"
 
   private static final long serialVersionUID = 1L;
 
@@ -35,11 +35,11 @@ public class Venda implements Serializable { // TODO: Alterar "Venda" para "Comp
 	private Usuario usuario;
 	
   @NotNull(message = "A venda deve possuir pelo menos um Item de Venda")
-  @OneToMany(mappedBy = "id.venda", cascade = CascadeType.ALL, orphanRemoval = true)
+  @OneToMany(mappedBy = "id.compra", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<ItemDeVenda> itemDeVenda;
 
   @Builder
-  public Venda(Integer id, Double total, String formaDePagamento, Usuario usuario) {
+  public Compra(Integer id, Double total, String formaDePagamento, Usuario usuario) {
     this.id = id;
     this.total = total;
     this.formaDePagamento = formaDePagamento;

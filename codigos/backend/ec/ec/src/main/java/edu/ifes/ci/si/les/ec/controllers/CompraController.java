@@ -39,15 +39,9 @@ public class CompraController {
     return ResponseEntity.ok().body(obj);
   }
 
-  @RequestMapping(method = RequestMethod.GET)
-  public ResponseEntity<Collection<Compra>> findAll() {
-    Collection<Compra> collection = service.findAll();
-    return ResponseEntity.ok().body(collection);
-  }
-
-  @RequestMapping(value = "/escritor/{id}", method = RequestMethod.GET)
-  public ResponseEntity<Collection<Compra>> findByAuthor(@PathVariable Integer id) {
-    Collection<Compra> collection = service.findByEscritorId(id);
+  @RequestMapping(value = "/usuario/{id}", method = RequestMethod.GET)
+  public ResponseEntity<Collection<Compra>> findByUsuario(@PathVariable Integer id) {
+    Collection<Compra> collection = service.findByUsuarioId(id);
     return ResponseEntity.ok().body(collection);
   }
 

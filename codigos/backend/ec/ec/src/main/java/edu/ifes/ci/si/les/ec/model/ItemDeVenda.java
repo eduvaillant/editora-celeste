@@ -7,6 +7,7 @@ import javax.validation.constraints.*;
 import lombok.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+//TODO alterar tudo relacionado a ItemDeVenda para ItemDeCompra
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33,8 +34,8 @@ public class ItemDeVenda implements Serializable {
 	private double total;
 
 	@Builder
-	public ItemDeVenda(Venda venda, Livro livro, Integer quantidade, String observacao, double total) {
-		this.id.setVenda(venda);
+	public ItemDeVenda(Compra compra, Livro livro, Integer quantidade, String observacao, double total) {
+		this.id.setCompra(compra);
 		this.id.setLivro(livro);
 		this.quantidade = quantidade;
 		this.observacao = observacao;
