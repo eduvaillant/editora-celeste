@@ -27,5 +27,5 @@ public class Favorito implements Serializable{
 	private Livro livro;
 
 	@ManyToOne()
-	private Escritor[] escritor;
+	private Escritor escritor;
 }
