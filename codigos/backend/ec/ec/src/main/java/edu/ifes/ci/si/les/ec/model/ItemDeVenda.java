@@ -41,4 +41,5 @@ public class ItemDeVenda implements Serializable {
 		this.observacao = observacao;
 		this.total = total;
 	}
+	
 }

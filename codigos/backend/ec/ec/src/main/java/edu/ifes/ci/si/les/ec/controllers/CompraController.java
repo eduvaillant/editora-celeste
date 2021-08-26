@@ -27,8 +27,10 @@ public class CompraController {
 
   @RequestMapping(method = RequestMethod.POST)
   public ResponseEntity<Compra> insert(@Valid @RequestBody Compra obj, BindingResult br) {
-    if (br.hasErrors())
+    System.out.println(br);
+    if (br.hasErrors()){      
       throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
+    }      
     obj = service.insert(obj);
     return ResponseEntity.ok().body(obj);
   }

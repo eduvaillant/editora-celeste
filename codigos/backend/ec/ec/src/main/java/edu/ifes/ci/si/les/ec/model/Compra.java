@@ -1,7 +1,8 @@
 package edu.ifes.ci.si.les.ec.model;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -13,7 +14,7 @@ import lombok.*;
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 @Entity
-public class Compra implements Serializable { // TODO: Alterar "Venda" para "Compra"
+public class Compra implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
@@ -36,7 +37,7 @@ public class Compra implements Serializable { // TODO: Alterar "Venda" para "Com
 	
   @NotNull(message = "A venda deve possuir pelo menos um Item de Venda")
   @OneToMany(mappedBy = "id.compra", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<ItemDeVenda> itemDeVenda;
+	private Collection<ItemDeVenda> itemDeVenda = new ArrayList<>();
 
   @Builder
   public Compra(Integer id, Double total, String formaDePagamento, Usuario usuario) {
