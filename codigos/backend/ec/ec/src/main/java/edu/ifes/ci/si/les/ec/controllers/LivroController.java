@@ -39,6 +39,11 @@ public class LivroController {
     return ResponseEntity.ok().body(obj);
   }
 
+  @RequestMapping(value = "/teste", method = RequestMethod.GET)
+  public ResponseEntity<String> findTeste(@PathVariable Integer id) {
+    return ResponseEntity.ok().body("Testando ...");
+  }
+
   @RequestMapping(method = RequestMethod.GET)
   public ResponseEntity<Collection<Livro>> findAll() {
     Collection<Livro> collection = service.findAll();
