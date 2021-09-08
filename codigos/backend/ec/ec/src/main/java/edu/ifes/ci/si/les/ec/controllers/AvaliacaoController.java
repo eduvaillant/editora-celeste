@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import edu.ifes.ci.si.les.ec.services.AvaliacaoService;
 import edu.ifes.ci.si.les.ec.services.exceptions.ConstraintException;
 
 @RestController()
+@CrossOrigin
 @RequestMapping(value = "/avaliacao")
 public class AvaliacaoController {
     @Autowired
@@ -53,5 +55,17 @@ public class AvaliacaoController {
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
       service.delete(id);
       return ResponseEntity.noContent().build();
+    }
+
+    @RequestMapping(value = "/livro/melhores/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Collection<Avaliacao>> melhoresByLivro(@PathVariable Integer id) {
+        Collection<Avaliacao> collection = service.melhoresByLivro(id);
+        return ResponseEntity.ok().body(collection);
+    }
+
+    @RequestMapping(value = "/livro/piores/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Collection<Avaliacao>> pioresByLivro(@PathVariable Integer id) {
+        Collection<Avaliacao> collection = service.pioresByLivro(id);
+        return ResponseEntity.ok().body(collection);
     }
 }

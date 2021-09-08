@@ -44,6 +44,22 @@ public class LivroService {
     }
   }
 
+  public Collection<Livro> melhoresByEscritor(Integer id) {
+    try {
+      Collection<Livro> obj = repository.melhoresByEscritorId(id);
+      return obj;
+    } catch (NoSuchElementException e) {
+      throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Usuario.class.getName());
+    }
+  }
+  public Collection<Livro> pioresByEscritor(Integer id) {
+    try {
+      Collection<Livro> obj = repository.pioresByEscritorId(id);
+      return obj;
+    } catch (NoSuchElementException e) {
+      throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Usuario.class.getName());
+    }
+  }
   public Collection<Livro> findAll() {
     return repository.findAll();
   } 
