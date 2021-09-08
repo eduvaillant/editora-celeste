@@ -54,4 +54,16 @@ public class AvaliacaoController {
       service.delete(id);
       return ResponseEntity.noContent().build();
     }
+
+    @RequestMapping(value = "/livro/melhores/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Collection<Avaliacao>> melhoresByLivro(@PathVariable Integer id) {
+        Collection<Avaliacao> collection = service.melhoresByLivro(id);
+        return ResponseEntity.ok().body(collection);
+    }
+
+    @RequestMapping(value = "/livro/piores/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Collection<Avaliacao>> pioresByLivro(@PathVariable Integer id) {
+        Collection<Avaliacao> collection = service.pioresByLivro(id);
+        return ResponseEntity.ok().body(collection);
+    }
 }
