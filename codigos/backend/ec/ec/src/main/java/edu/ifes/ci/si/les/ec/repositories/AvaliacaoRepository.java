@@ -3,6 +3,7 @@ package edu.ifes.ci.si.les.ec.repositories;
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,10 +20,10 @@ public interface AvaliacaoRepository extends JpaRepository<Avaliacao, Integer> {
    
     @Transactional(readOnly = true)
     @Query(value = "SELECT * from avaliacao av WHERE av.livro_id = ?1 order by nota asc limit 3;", nativeQuery = true)
-    public boolean pioresByLivroId(Integer livro_id);
+    public Collection<Avaliacao> pioresByLivroId(Integer livro_id);
 
     @Transactional(readOnly = true)
     @Query(value = "SELECT * from avaliacao av WHERE av.livro_id = ?1 order by nota desc limit 3;", nativeQuery = true)
-    public boolean melhoresByLivroId(Integer livro_id);
+    public Collection<Avaliacao> melhoresByLivroId(Integer livro_id);
 }
 
