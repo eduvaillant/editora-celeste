@@ -54,6 +54,24 @@ public class AvaliacaoService {
         }
     }
 
+    public Collection<Avaliacao> melhoresByLivro(Integer id) {
+        try {
+          Collection<Avaliacao> obj = avaliacaoRepository.melhoresByLivroId(id);
+          return obj;
+        } catch (NoSuchElementException e) {
+          throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Avaliacao.class.getName());
+        }
+    }
+
+    public Collection<Avaliacao> pioresByLivro(Integer id) {
+        try {
+          Collection<Avaliacao> obj = avaliacaoRepository.pioresByLivroId(id);
+          return obj;
+        } catch (NoSuchElementException e) {
+          throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Avaliacao.class.getName());
+        }
+    }
+
     public Collection<Avaliacao> findByUsuario(Integer id) {
         try {
           Collection<Avaliacao> obj = avaliacaoRepository.findByUsuarioId(id);
@@ -71,6 +89,7 @@ public class AvaliacaoService {
         throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Avaliacao.class.getName());
       }
     }
+    
 
     public void delete(Integer id) {
       findById(id);

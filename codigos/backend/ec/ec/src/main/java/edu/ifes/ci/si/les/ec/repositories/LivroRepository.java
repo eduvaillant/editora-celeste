@@ -11,5 +11,7 @@ import java.util.Collection;
 public interface LivroRepository extends JpaRepository<Livro, Integer> {  
   @Transactional(readOnly = true)
   public Collection<Livro> findByEscritorId(Integer escritor_id);
+
+  
 }
 
