@@ -35,6 +35,15 @@ public class EscritorService {
       }
   }
 
+  public Collection<Escritor> melhores(Integer id) {
+    try {
+        Collection<Escritor> obj = repository.melhores().get();
+        return obj;
+      } catch (NoSuchElementException e) {
+        throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Escritor.class.getName());
+      }
+  }
+
   public Collection<Escritor> findAll() {
     return repository.findAll();
   } 
