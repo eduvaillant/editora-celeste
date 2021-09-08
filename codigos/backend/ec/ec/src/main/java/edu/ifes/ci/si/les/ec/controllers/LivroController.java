@@ -66,14 +66,14 @@ public class LivroController {
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-  public ResponseEntity<Void> melhoresByAutor(@PathVariable Integer id) {
-    Collection<Livro> collection = service.melhoresByAutor(id);
+  public ResponseEntity<Collection<Livro>> melhoresByEscritor(@PathVariable Integer id) {
+    Collection<Livro> collection = service.melhoresByEscritor(id);
     return ResponseEntity.ok().body(collection);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-  public ResponseEntity<Void> pioresByAutor(@PathVariable Integer id) {
-    Collection<Livro> collection = service.pioresByAutor(id);
+  public ResponseEntity<Collection<Livro>> pioresByEscritor(@PathVariable Integer id) {
+    Collection<Livro> collection = service.pioresByEscritor(id);
     return ResponseEntity.ok().body(collection);
   }
 }
