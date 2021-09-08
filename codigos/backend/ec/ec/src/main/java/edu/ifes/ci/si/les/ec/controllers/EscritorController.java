@@ -58,4 +58,10 @@ public class EscritorController {
     service.delete(id);
     return ResponseEntity.noContent().build();
   }
+
+  @RequestMapping(value = "/melhores", method = RequestMethod.GET)
+  public ResponseEntity<Collection<Escritor>> melhoresEscritores() {
+    Collection<Escritor> collection = service.melhores();
+    return ResponseEntity.ok().body(collection);
+  }
 }
