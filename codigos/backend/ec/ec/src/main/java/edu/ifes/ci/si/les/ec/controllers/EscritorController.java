@@ -60,7 +60,7 @@ public class EscritorController {
   }
 
   @RequestMapping(value = "/melhores", method = RequestMethod.GET)
-  public ResponseEntity<Collection<Escritor>> melhoresEscritores() {
+  public ResponseEntity<Collection<Escritor>> melhores() {
     Collection<Escritor> collection = service.melhores();
     return ResponseEntity.ok().body(collection);
   }
