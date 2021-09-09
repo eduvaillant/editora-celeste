@@ -19,11 +19,11 @@ public interface AvaliacaoRepository extends JpaRepository<Avaliacao, Integer> {
 
    
     @Transactional(readOnly = true)
-    @Query(value = "SELECT * from avaliacao av WHERE av.livro_id = ?1 order by nota asc limit 3;", nativeQuery = true)
+    @Query(value = "SELECT * FROM avaliacao av WHERE av.livro_id = ?1 ORDER BY nota ASC LIMIT 3", nativeQuery = true)
     public Collection<Avaliacao> pioresByLivroId(Integer livro_id);
 
     @Transactional(readOnly = true)
-    @Query(value = "SELECT * from avaliacao av WHERE av.livro_id = ?1 order by nota desc limit 3;", nativeQuery = true)
+    @Query(value = "SELECT * FROM avaliacao av WHERE av.livro_id = ?1 ORDER BY nota DESC LIMIT 3", nativeQuery = true)
     public Collection<Avaliacao> melhoresByLivroId(Integer livro_id);
 }
 

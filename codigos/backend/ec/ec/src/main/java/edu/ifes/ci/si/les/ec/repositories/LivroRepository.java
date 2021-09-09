@@ -13,11 +13,11 @@ public interface LivroRepository extends JpaRepository<Livro, Integer> {
   public Collection<Livro> findByEscritorId(Integer escritor_id);
 
   @Transactional(readOnly = true)
-  @Query(value = "SELECT l.*, AVG(av.nota) from livro l inner join escritor e on e.id = l.escritor_id inner join avaliacao av on l.id = av.livro_id WHERE e.id = $1 group by l.id order by avg(av.nota) asc limit 3;", nativeQuery = true)
+  @Query(value = "SELECT l.*, AVG(av.nota) FROM livro l INNER JOIN escritor e ON e.id = l.escritor_id INNER JOIN avaliacao av ON l.id = av.livro_id WHERE e.id = ?1 GROUP BY l.id ORDER BY AVG(av.nota) ASC LIMIT 3", nativeQuery = true)
   public Collection<Livro> pioresByEscritorId(Integer escritor_id);
 
   @Transactional(readOnly = true)
-  @Query(value = "SELECT l.*, AVG(av.nota) from livro l inner join escritor e on e.id = l.escritor_id inner join avaliacao av on l.id = av.livro_id WHERE e.id = $1 group by l.id order by avg(av.nota) desc limit 3;", nativeQuery = true)
+  @Query(value = "SELECT l.*, AVG(av.nota) FROM livro l INNER JOIN escritor e ON e.id = l.escritor_id INNER JOIN avaliacao av ON l.id = av.livro_id WHERE e.id = ?1 GROUP BY l.id ORDER BY AVG(av.nota) DESC LIMIT 3", nativeQuery = true)
   public Collection<Livro> melhoresByEscritorId(Integer escritor_id);
   
 }

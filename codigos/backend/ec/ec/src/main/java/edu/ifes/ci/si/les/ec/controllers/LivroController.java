@@ -39,11 +39,6 @@ public class LivroController {
     return ResponseEntity.ok().body(obj);
   }
 
-  @RequestMapping(value = "/teste", method = RequestMethod.GET)
-  public ResponseEntity<String> findTeste(@PathVariable Integer id) {
-    return ResponseEntity.ok().body("Testando ...");
-  }
-
   @RequestMapping(method = RequestMethod.GET)
   public ResponseEntity<Collection<Livro>> findAll() {
     Collection<Livro> collection = service.findAll();
@@ -70,13 +65,13 @@ public class LivroController {
     return ResponseEntity.noContent().build();
   }
 
-  @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+  @RequestMapping(value = "/melhores/{id}", method = RequestMethod.GET)
   public ResponseEntity<Collection<Livro>> melhoresByEscritor(@PathVariable Integer id) {
     Collection<Livro> collection = service.melhoresByEscritor(id);
     return ResponseEntity.ok().body(collection);
   }
 
-  @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+  @RequestMapping(value = "/piores/{id}", method = RequestMethod.GET)
   public ResponseEntity<Collection<Livro>> pioresByEscritor(@PathVariable Integer id) {
     Collection<Livro> collection = service.pioresByEscritor(id);
     return ResponseEntity.ok().body(collection);

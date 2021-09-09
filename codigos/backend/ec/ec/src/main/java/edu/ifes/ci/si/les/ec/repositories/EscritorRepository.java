@@ -11,6 +11,6 @@ import edu.ifes.ci.si.les.ec.model.Escritor;
 @Repository
 public interface EscritorRepository extends JpaRepository<Escritor, Integer> {  
   @Transactional(readOnly = true)
-  @Query(value = "select e.*, avg(av.nota) from escritor e inner join livro l on l.escritor_id = e.id inner join avaliacao av on l.id = av.livro_id group by e.id order by avg(av.nota) asc limit 3;", nativeQuery = true)
-	public Collection<Escritor> melhores();
-}
+  @Query(value = "SELECT e.*, u.* FROM escritor e INNER JOIN livro l ON l.escritor_id = e.id INNER JOIN usuario u ON e.id = u.id INNER JOIN avaliacao av ON l.id = av.livro_id GROUP BY e.id, u.id ORDER BY AVG(av.nota) ASC LIMIT 5", nativeQuery = true)
+  public Collection<Escritor> melhoresEscritores();
+} 
